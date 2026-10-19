@@ -1,0 +1,6714 @@
+{
+  "stride": 10,
+  "time": "20240213-09:50",
+  "maze": {
+    "path": "assets/village/maze.json"
+  },
+  "agent_base": {
+    "percept": {
+      "mode": "box",
+      "vision_r": 8,
+      "att_bandwidth": 8
+    },
+    "schedule": {
+      "max_try": 5,
+      "diversity": 5
+    },
+    "think": {
+      "llm": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct-2507-q4_K_M",
+        "base_url": "http://127.0.0.1:11434/v1",
+        "api_key": ""
+      },
+      "interval": 1000,
+      "poignancy_max": 150
+    },
+    "chat_iter": 4,
+    "associate": {
+      "embedding": {
+        "provider": "ollama",
+        "model": "qwen3-embedding:0.6b-q8_0",
+        "base_url": "http://127.0.0.1:11434",
+        "api_key": ""
+      },
+      "retention": 8
+    }
+  },
+  "agents": {
+    "アイーシャ": {
+      "config_path": "assets/village/agents/アイーシャ/agent.json",
+      "status": {
+        "poignancy": 26
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "シェイクスピアの劇の原文を読む",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "シェイクスピアの劇の語彙と表現のメモを取る",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "シェイクスピアの劇の原文を読みながら、重要な表現をノートに記録する",
+                "start": 540,
+                "duration": 15
+              },
+              {
+                "idx": 1,
+                "describe": "劇の語彙をリストにまとめる",
+                "start": 555,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "表現のニュアンスを他の作品と比較する",
+                "start": 565,
+                "duration": 15
+              },
+              {
+                "idx": 3,
+                "describe": "エディが18世紀の音楽の変遷について質問し、アイーシャがそれがシェイクスピアの劇の言語表現と関係あるかと誤解した",
+                "start": 580,
+                "duration": 0
+              },
+              {
+                "idx": 4,
+                "describe": "メモを整理し、要点を再構成する",
+                "start": 580,
+                "duration": 20
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "オークマウンテン・アカデミーの図書館で授業を受け、シェイクスピアの言語表現について講義を聞く",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "授業の内容をメモし、重要な言語パターンを整理する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "図書館の資料を検索し、関連する研究論文を確認する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "過去のシェイクスピア研究の論文を読み、分析する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "自分の研究テーマに合わせて、言語表現の例を整理し、ノートに記録する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "図書館で他の学生と話しながら、文学の解釈について質問する",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "自宅に帰宅し、今日の学習の進捗を確認する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食を食べる",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "映画「オール・アブアウト・ロード」を観る（シェイクスピアのテーマに影響を受けた現代映画）",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "映画の内容を分析し、シェイクスピアの表現と現代の映画における対比をメモする",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に本を読む（シェイクスピアの『ハムレット』の一部を読む）",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備をする（照明を消し、服を着替え、スマホをオフにする）",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_7",
+            "node_6",
+            "node_5",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_4"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "エディ",
+          "あ、アイーシャ。18世紀の音楽の変遷、どう？"
+        ],
+        [
+          "アイーシャ",
+          "18世紀の音楽の変遷、それってシェイクスピアの劇の言語表現と関係あるってこと？"
+        ]
+      ],
+      "currently": "アイーシャは卒業論文の研究をしており、テーマはシェイクスピアの劇における言語表現である。また、授業にも参加し、文章表現についてさらに学んでいる。",
+      "action": {
+        "event": {
+          "subject": "アイーシャ",
+          "predicate": "今",
+          "object": "メモを整理し、要点を再構成する",
+          "describe": "メモを整理し、要点を再構成する",
+          "address": [
+            "the Ville",
+            "オークマウンテン・アカデミー",
+            "図書館",
+            "図書館のテーブル"
+          ],
+          "emoji": "メモを整理し、要点を再構成する"
+        },
+        "obj_event": {
+          "subject": "図書館のテーブル",
+          "predicate": "今",
+          "object": " メモを整理している",
+          "describe": "図書館のテーブル メモを整理している",
+          "address": [
+            "the Ville",
+            "オークマウンテン・アカデミー",
+            "図書館",
+            "図書館のテーブル"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:40:00",
+        "duration": 20
+      },
+      "coord": [
+        119,
+        24
+      ]
+    },
+    "クラウス": {
+      "config_path": "assets/village/agents/クラウス/agent.json",
+      "status": {
+        "poignancy": 18
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "図書館に移動し、低所得地域の中流化の影響に関する研究論文を執筆開始",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "研究論文にデータ分析を追加し、社会正義の視点から現象を解釈",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "社会学の教科書を読みながら、異なる文化的背景を調査する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "社会学の教科書を読みながら、異なる文化的背景を調査する",
+                "start": 540,
+                "duration": 60
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "図書館の資料を検索し、過去の研究論文を比較分析",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "執筆を一時中断し、自宅で友人とオンラインでディスカッションを実施（社会正義の実例）",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯をホブズ・カフェでとる（学生のための価格設定に配慮したメニューを選び、食事中に周囲の社会的現象を観察）",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "カフェで飲んだコーヒーをもとに、地域の経済格差と生活習慣の関係をメモ",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "図書館に戻り、研究論文の構成を再整理し、論理的な流れを整える",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "研究資料の一部を整理し、視点の多様性を反映するための補足資料を作成",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "執筆を進める。特に「中流化の影響」というテーマに焦点を当てる",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "執筆を終える予定の時間に近づき、論文の結論を明確にする",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "ホブズ・カフェで夕食をとる（午後5時ごろに訪問）",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "夕食後、近くのコミュニティセンターで開催されたパネルディスカッションに参加（低所得地域の若者の視点）",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "ディスカッションの内容をメモし、研究論文の視点を補強するためのアイデアを整理",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "研究論文の最終チェックを行い、論理の整合性と社会正義のメッセージを確認",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備を整え、夜間のリラクゼーション（深呼吸や瞑想）を行う",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に就寝",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "クラウスは低所得地域の中流化の影響に関する研究論文を執筆している。",
+      "action": {
+        "event": {
+          "subject": "クラウス",
+          "predicate": "今",
+          "object": "社会学の教科書を読みながら、異なる文化的背景を調査する",
+          "describe": "社会学の教科書を読みながら、異なる文化的背景を調査する",
+          "address": [
+            "the Ville",
+            "ジョンソン公園",
+            "公園",
+            "公園の庭園"
+          ],
+          "emoji": "社会学の教科書を読みながら、異なる文化的背景を調査する"
+        },
+        "obj_event": {
+          "subject": "公園の庭園",
+          "predicate": "今",
+          "object": " 人が散歩している",
+          "describe": "公園の庭園 人が散歩している",
+          "address": [
+            "the Ville",
+            "ジョンソン公園",
+            "公園",
+            "公園の庭園"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:00:00",
+        "duration": 60
+      },
+      "coord": [
+        34,
+        50
+      ]
+    },
+    "マリア": {
+      "config_path": "assets/village/agents/マリア/agent.json",
+      "status": {
+        "poignancy": 0
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "寝る",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "寝る",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "寝る",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "寝る",
+                "start": 540,
+                "duration": 60
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "起床し、朝の身支度を済ませる。シャワーを浴び、髪を整え、物理の教科書を手に取りながら、前日の授業の要点を確認する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "ホブズ・カフェに移動し、午前中の勉強を始める。特に熱力学の公式や運動方程式について、ノートに手書きでまとめながら理解を深める。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "ホブズ・カフェで昼ごはんを食べる。バナナとヨーグルトのスムージーと、マカロニを食べながら、物理の問題集を一問解く。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "カフェの外で少し散歩する。自然の風を感じながら、気体の圧力と温度の関係について、頭の中でモデルを構築する。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "ホブズ・カフェに戻り、午後1時半から2時半まで、量子力学の基礎理論を勉強する。講義ノートを確認しながら、疑問点をメモする。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "友人とオンラインで短い会話をする。Twitch配信の準備や、次週の配信テーマについて、意見を交わす。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "ホブズ・カフェで物理の演習問題を解く。特に電磁気の問題を解きながら、図を描きながら理解を深める。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "カフェで20分間、自分の配信の進行状況をチェック。Twitchのチャットに反応し、視聴者から来た質問に答える準備をする。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕方の散歩をしながら、物理の実験のアイデアを頭に思い浮かべる。例えば、家庭でできる簡単な電磁誘導実験を考えてみる。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "Twitchでゲーム配信を開始。プレイ中のゲーム（例：《Among Us》）に参加し、視聴者とのやり取りをしながら、物理の知識を自然に話す。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "配信中、視聴者からの質問に即座に答える。たとえば「重力と質量の関係」について、日常の例を使って説明する。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "配信を終え、カフェに戻り、配信の録画を確認。視聴者の反応をチェックし、次回の配信に活かすためのメモを残す。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "物理のノートを整理し、今日の学習内容をまとめたメモを電子ファイルに保存。また、明日の勉強のスケジュールを確認する。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "就寝する前に、10分間の呼吸法を実施し、心身をリセット。その後、寝る準備をする",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "マリアは物理学を専攻しつつ、Twitchでゲーム配信を行い副収入を得ている。毎日ほぼホブズ・カフェで勉強と食事をしている。",
+      "action": {
+        "event": {
+          "subject": "マリア",
+          "predicate": "今",
+          "object": "睡眠中",
+          "describe": "",
+          "address": [
+            "the Ville",
+            "オークマウンテン・アカデミーの学生寮",
+            "マリアの部屋",
+            "ベッド"
+          ],
+          "emoji": "😴"
+        },
+        "obj_event": {
+          "subject": "ベッド",
+          "predicate": "使用中",
+          "object": "マリア",
+          "describe": "",
+          "address": [
+            "the Ville",
+            "オークマウンテン・アカデミーの学生寮",
+            "マリアの部屋",
+            "ベッド"
+          ],
+          "emoji": "🛌"
+        },
+        "start": "20240213-09:00:00",
+        "duration": 60
+      },
+      "coord": [
+        123,
+        57
+      ]
+    },
+    "ヴォルフガング": {
+      "config_path": "assets/village/agents/ヴォルフガング/agent.json",
+      "status": {
+        "poignancy": 15
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 120,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "5時に起床し、身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "化学の授業ノートを確認し、当日の学習テーマを確認する",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "化学の勉強を開始し、反応式や実験手順の復習を行う",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "化学の授業ノートを確認し、当日の学習テーマを確認する",
+                "start": 540,
+                "duration": 5
+              },
+              {
+                "idx": 1,
+                "describe": "授業内容を要約してメモを作成する",
+                "start": 545,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "反応式の基礎を復習する",
+                "start": 555,
+                "duration": 15
+              },
+              {
+                "idx": 3,
+                "describe": "実験手順の流れを図解して理解する",
+                "start": 570,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "重要な概念をノートに書き出す",
+                "start": 580,
+                "duration": 10
+              },
+              {
+                "idx": 5,
+                "describe": "学習した内容を短いフレーズでまとめ直す",
+                "start": 590,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 9,
+            "describe": "化学の問題集を解きながら、理解度をチェックする",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 10,
+            "describe": "化学の理論を整理し、メモを手書きで作成する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯の後、15分間のストレッチをしながら休憩する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "試合のトレーニングスケジュールを確認し、前日のフィードバックを分析する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "試合のための筋トレと技術練習を実施する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "試合前のストレッチと呼吸法を実践し、体の準備を整える",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "試合の過去問を確認し、時間管理のポイントを分析する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "夕食を食べる",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "自室で化学の復習をしながら、学習効率を高めるためのメソッドをメモする",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "学習効率を高めるためのアプリやテクニックを検索し、自分に合った方法を選び出す",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "就寝前に化学の要点を10分間の要約で復習する",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前の準備を整え、スマホをオフにし、寝室に移動する",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "夜9時ごろに就寝する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "ヴォルフガングは次の試合に向けてトレーニングを行い、試験の準備もしている。また、学習効率を高める方法も探している。",
+      "action": {
+        "event": {
+          "subject": "ヴォルフガング",
+          "predicate": "今",
+          "object": "学習した内容を短いフレーズでまとめ直す",
+          "describe": "学習した内容を短いフレーズでまとめ直す",
+          "address": [
+            "the Ville",
+            "オークマウンテン・アカデミーの学生寮",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": "学習した内容を短いフレーズでまとめ直す"
+        },
+        "obj_event": {
+          "subject": "共用ラウンジのテーブル",
+          "predicate": "今",
+          "object": " に学習ノートを置いている",
+          "describe": "共用ラウンジのテーブル に学習ノートを置いている",
+          "address": [
+            "the Ville",
+            "オークマウンテン・アカデミーの学生寮",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:50:00",
+        "duration": 10
+      },
+      "coord": [
+        119,
+        49
+      ]
+    },
+    "梅": {
+      "config_path": "assets/village/agents/梅/agent.json",
+      "status": {
+        "poignancy": 18
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "起床し、家族に優しく声をかけ、ジョンとエディに朝の挨拶をする",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "朝の体操を10分間行い、家族に健康な体を保つことを呼びかける",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "家族と朝の会話を行い、エディの学校の進捗やジョンの仕事の様子を確認する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "家族と朝の会話を行い、エディの学校の進捗やジョンの仕事の様子を確認する",
+                "start": 540,
+                "duration": 30
+              },
+              {
+                "idx": 1,
+                "describe": "ジョンと梅が、エディの学校の進捗や体調を確認する会話。",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 2,
+                "describe": "残りの時間を使って、エディの学習計画を立て、今後の進捗を確認する",
+                "start": 570,
+                "duration": 30
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "オークマウンテン・アカデミーへ出発し、授業への準備を整える",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "授業開始前、学生たちに温かい挨拶をし、今日のテーマを共有する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "授業中に哲学のテーマ「人間の意味」というテーマを、学生たちにわかりやすく説明する",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "授業中の質問に丁寧に答える。学生の意見を尊重し、思いやりをもって対話する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "授業の終了後、学生たちに感謝の言葉を伝え、次回の授業の予定を共有する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "授業の後に、研究資料を整理し、新しい論文の構成を進める",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "家庭に帰宅し、エディの宿題を一緒に見直し、学習のモチベーションを支える",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "ジョンと家族で夕方の散歩をし、自然の中での対話で心を落ち着ける",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食を午後5時ごろにとる。ジョンとエディと家族で温かい食事を共有する",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "夕食後、エディと一緒に家庭のルールや価値観について話す",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "ジョンと話しながら、今日の学びや家庭の出来事を共有し、お互いの成長を評価する",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に、エディに「今日の学びを語る」を提案し、夜のリラクゼーションを共有する",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝室に移動し、家族の話題をまとめ、明日のスケジュールを確認する",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時ごろに就寝し、心を落ち着けながら眠りにつく",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_3",
+            "node_2"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_1"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "ジョン",
+          "おはよう。今日はエディ、学校の勉強どう？"
+        ],
+        [
+          "梅",
+          "おはよう。エディ、お元気？学校の進捗、どう？"
+        ]
+      ],
+      "currently": "梅は夫ジョンと息子エディと暮らし、哲学の授業と研究活動を行いながら、子どもたちの学習も支えている。",
+      "action": {
+        "event": {
+          "subject": "梅",
+          "predicate": "今",
+          "object": "残りの時間を使って、エディの学習計画を立て、今後の進捗を確認する",
+          "describe": "残りの時間を使って、エディの学習計画を立て、今後の進捗を確認する",
+          "address": [
+            "the Ville",
+            "リン家の家",
+            "エディの寝室",
+            "デスク"
+          ],
+          "emoji": "残りの時間を使って、エディの学習計画を立て、今後の進捗を確認する"
+        },
+        "obj_event": {
+          "subject": "デスク",
+          "predicate": "今",
+          "object": " 上に学習計画を置いている",
+          "describe": "デスク 上に学習計画を置いている",
+          "address": [
+            "the Ville",
+            "リン家の家",
+            "エディの寝室",
+            "デスク"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:30:00",
+        "duration": 30
+      },
+      "coord": [
+        95,
+        74
+      ]
+    },
+    "ジョン": {
+      "config_path": "assets/village/agents/ジョン/agent.json",
+      "status": {
+        "poignancy": 5
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "妻の梅と話しながら、昨日の客の意見を整理する",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "ヤナギ市場と薬局のカウンターを開ける",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "ヤナギ市場と薬局のカウンターを準備する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "前の日の売上データを確認する",
+                "start": 550,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "客の来訪予定をチェックする",
+                "start": 560,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "マスクや手袋などの衛生用品を整える",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 4,
+                "describe": "ジョンと梅が、エディの学校の進捗や体調を確認する会話。",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 5,
+                "describe": "カウンターの照明を確認する",
+                "start": 570,
+                "duration": 10
+              },
+              {
+                "idx": 6,
+                "describe": "必要な薬の在庫を確認する",
+                "start": 580,
+                "duration": 5
+              },
+              {
+                "idx": 7,
+                "describe": "オンライン講座の資料を確認する",
+                "start": 585,
+                "duration": 15
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "初めの客に薬の使い方を丁寧に説明する",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "高齢者向けの新しい薬の効果について、実際の例を交えて説明する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "午前中の接客を終え、少し休憩を取る",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "オンライン講座に参加する（最新の治療法について）",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "町の人に質問し、来月の地方市長選挙の候補者についての意見を聞く",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "地域の医療関係者と連絡を取り、新しい薬の導入について相談する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "お客に接客を続ける。特に子どもや高齢者のニーズに合わせたアドバイスを提供する",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "午後5時ごろに接客を終え、カウンターを閉める",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "家に帰る",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "息子のエディと散歩しながら、今日の出来事を話す",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "エディと一緒に夕食を食べる（カレーと野菜の炒め物）",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "テレビで地方選挙のニュースを確認し、自分の意見をメモする",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る前に妻の梅と、明日の接客計画を話す",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜10時ごろに就寝する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_3",
+            "node_2"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_1"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "ジョン",
+          "おはよう。今日はエディ、学校の勉強どう？"
+        ],
+        [
+          "梅",
+          "おはよう。エディ、お元気？学校の進捗、どう？"
+        ]
+      ],
+      "currently": "ジョンは妻の梅と息子のエディと暮らし、ヤナギ市場と薬局を経営している。最新の薬や治療法を学ぶためオンライン講座にも参加しており、来月の地方市長選挙に誰が出るのかにも興味を持ち、人々に質問している。",
+      "action": {
+        "event": {
+          "subject": "ジョン",
+          "predicate": "今",
+          "object": "オンライン講座の資料を確認する",
+          "describe": "オンライン講座の資料を確認する",
+          "address": [
+            "the Ville",
+            "リン家の家",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": "オンライン講座の資料を確認する"
+        },
+        "obj_event": {
+          "subject": "共用ラウンジのテーブル",
+          "predicate": "今",
+          "object": " 資料を確認している",
+          "describe": "共用ラウンジのテーブル 資料を確認している",
+          "address": [
+            "the Ville",
+            "リン家の家",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:45:00",
+        "duration": 15
+      },
+      "coord": [
+        91,
+        67
+      ]
+    },
+    "エディ": {
+      "config_path": "assets/village/agents/エディ/agent.json",
+      "status": {
+        "poignancy": 29
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "音楽理論の授業の復習をしながら、ノートを整理する",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "音楽の歴史に関する資料を読み、分析的に整理する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "音楽の歴史に関する資料を読み始める",
+                "start": 540,
+                "duration": 5
+              },
+              {
+                "idx": 1,
+                "describe": "資料の内容を一覧にまとめる",
+                "start": 545,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "17世紀の音楽スタイルについて調査する",
+                "start": 555,
+                "duration": 15
+              },
+              {
+                "idx": 3,
+                "describe": "18世紀の音楽の変遷について記録する",
+                "start": 570,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "音楽史の重要な出来事をマインドマップにまとめる",
+                "start": 580,
+                "duration": 0
+              },
+              {
+                "idx": 5,
+                "describe": "エディが18世紀の音楽の変遷について質問し、アイーシャがそれがシェイクスピアの劇の言語表現と関係あるかと誤解した",
+                "start": 580,
+                "duration": 0
+              },
+              {
+                "idx": 6,
+                "describe": "資料の読み終わりを確認し、要点をノートに記入する",
+                "start": 580,
+                "duration": 20
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "オークマウンテン・アカデミーで音楽理論の授業に出席する",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "授業の講義内容をメモし、自分の理解を図るためにスケッチを描く",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "音楽合成ソフトの基礎操作を練習する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "音楽スタイルの比較研究を行う（ジャズとクラシックの違いを分析）",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "音楽理論のノートをまとめて、自分の考えを記録する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "ホブズ・カフェで音楽合成プロジェクトの進捗を確認し、新たなアイデアをメモする",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "ホブズ・カフェでコーヒーを飲みながら、作曲のアイデアを自由に発想する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "家に帰る",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "音楽のリスニングセッションを実施し、異なるスタイルの音楽を聴きながら分析する",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "音楽の作曲に取り組み、新しいメロディを試行錯誤する",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "音楽プロジェクトの進捗を日記にまとめる",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る前に音楽理論の要点をまとめて、次の日への準備をする",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_6",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [
+        [
+          "エディ",
+          "あ、アイーシャ。18世紀の音楽の変遷、どう？"
+        ],
+        [
+          "アイーシャ",
+          "18世紀の音楽の変遷、それってシェイクスピアの劇の言語表現と関係あるってこと？"
+        ]
+      ],
+      "currently": "エディは大学で音楽合成プロジェクトに取り組み、授業で音楽理論も学んでいる。",
+      "action": {
+        "event": {
+          "subject": "エディ",
+          "predicate": "今",
+          "object": "資料の読み終わりを確認し、要点をノートに記入する",
+          "describe": "資料の読み終わりを確認し、要点をノートに記入する",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "キッチン"
+          ],
+          "emoji": "資料の読み終わりを確認し、要点をノートに記入する"
+        },
+        "obj_event": {
+          "subject": "キッチン",
+          "predicate": "今",
+          "object": "は静かに、何もしていない",
+          "describe": "キッチンは静かに、何もしていない",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "キッチン"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:40:00",
+        "duration": 20
+      },
+      "coord": [
+        75,
+        19
+      ]
+    },
+    "ジェーン": {
+      "config_path": "assets/village/agents/ジェーン/agent.json",
+      "status": {
+        "poignancy": 5
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "家庭の掃除をすることに",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "庭の花を水をやり、家族のための小さなお菓子の準備をする",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "庭の花を水をやる",
+                "start": 540,
+                "duration": 25
+              },
+              {
+                "idx": 1,
+                "describe": "家族のために小さなお菓子の材料を準備する",
+                "start": 565,
+                "duration": 5
+              },
+              {
+                "idx": 2,
+                "describe": "トムとジェーンが同時にお菓子の材料を準備していたことを確認。",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 3,
+                "describe": "お菓子の形を決める",
+                "start": 570,
+                "duration": 5
+              },
+              {
+                "idx": 4,
+                "describe": "お菓子の味を試す",
+                "start": 575,
+                "duration": 25
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "夫トムとヤナギ市場へ買い物に行く",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "市場で購入した食材を家に運び、冷蔵庫に整理する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後の準備を整えるために、お風呂と寝室の掃除をする",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "家族のための簡単なランチを準備し、子供たちのためのおやつを用意する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "トムと話しながら、来週の買い物や家の予定を共有する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "家庭の準備を整える",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "夫と話しながら過ごす",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食をとる",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "家族の話題を共有する",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "夕食後に家族と話しながら、今日の出来事や明日の予定を話す",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に本を読む",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備をする",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜10時に就寝する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_3",
+            "node_2"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_1"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "トム",
+          "あ、ジェーン、お菓子の材料準備してたよ。"
+        ],
+        [
+          "ジェーン",
+          "あ、そうだったね！ちょうど準備してたよ。"
+        ]
+      ],
+      "currently": "ジェーンは夫トムと暮らしており、トムはヤナギ市場と薬局の店主である。",
+      "action": {
+        "event": {
+          "subject": "ジェーン",
+          "predicate": "今",
+          "object": "お菓子の味を試す",
+          "describe": "お菓子の味を試す",
+          "address": [
+            "the Ville",
+            "モレノ家の家",
+            "厨房",
+            "キッチン"
+          ],
+          "emoji": "お菓子の味を試す"
+        },
+        "obj_event": {
+          "subject": "キッチン",
+          "predicate": "今",
+          "object": " 食器を並べている",
+          "describe": "キッチン> 食器を並べている",
+          "address": [
+            "the Ville",
+            "モレノ家の家",
+            "厨房",
+            "キッチン"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:35:00",
+        "duration": 25
+      },
+      "coord": [
+        75,
+        66
+      ]
+    },
+    "トム": {
+      "config_path": "assets/village/agents/トム/agent.json",
+      "status": {
+        "poignancy": 11
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "夜11時ごろ就寝するため、前日の夜の準備を終える",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝7時に起床し、まず水を飲む。その後、洗面台で顔を洗い、髪を整える。",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "ヤナギ市場と薬局を8時に開店し、カウンターに立って顧客の注文を受ける。",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "新しい来客に声をかけ、商品の説明を親切にし、特に薬の使い方について丁寧に説明する。",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "新しい来客に声をかけ、挨拶を交わす",
+                "start": 540,
+                "duration": 5
+              },
+              {
+                "idx": 1,
+                "describe": "来客の注文内容を確認する",
+                "start": 545,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "商品の説明を親切に伝える",
+                "start": 555,
+                "duration": 15
+              },
+              {
+                "idx": 3,
+                "describe": "トムとジェーンが同時にお菓子の材料を準備していたことを確認。",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 4,
+                "describe": "特に薬の使い方について丁寧に説明する",
+                "start": 570,
+                "duration": 30
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "ある老婦人のために、自作のハーブティーを用意し、温かいお茶を提供する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "若い家庭のための子供用の風呂のための薬品を紹介し、安心感を伝えるように話す。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "午後の前半に、市場の売り場を整理し、商品の並びを整える。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "13時ごろ、隣の町の農家から新鮮な野菜を購入し、市場に並べる。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後14時、薬局の在庫を確認し、切れている薬を補充する。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "来客の多くに「今日の市場の新作」を紹介し、好意的に反応を引き出す。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後6時までの間、顧客の注文を順番に受け取り、その場で対応する。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "17時ごろ、市場のカウンターに立ち、来客がいる間は常に親切に対応し、会話を持ち続ける。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "午後6時に市場と薬局を閉店し、自宅へ帰宅する。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "帰宅後、妻のジェーンと夕食をとり、食事中の会話で地方市長選挙について話す。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "夕食後、ジェーンと一緒にテレビで地域のニュースを観ながら、サムの話題を避けながら話す。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "夜の1時間、静かに本を読み、自分の考えを整理する。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る前に、明日の市場の準備を頭に思い浮かべ、翌日のプランを決める。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に寝る前、カーテンを閉め、静かに就寝する準備をする",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_1"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "トム",
+          "あ、ジェーン、お菓子の材料準備してたよ。"
+        ],
+        [
+          "ジェーン",
+          "あ、そうだったね！ちょうど準備してたよ。"
+        ]
+      ],
+      "currently": "トムは妻のジェーンと一緒に暮らしており、店の日常的な運営を担当し、客の注文対応も行っている。来月行われる地方市長選挙にも関心を持っているが、サムのことは好きではない",
+      "action": {
+        "event": {
+          "subject": "トム",
+          "predicate": "今",
+          "object": "特に薬の使い方について丁寧に説明する",
+          "describe": "特に薬の使い方について丁寧に説明する",
+          "address": [
+            "the Ville",
+            "ヤナギ市場と薬局",
+            "ショップ",
+            "薬局のカウンター"
+          ],
+          "emoji": "特に薬の使い方について丁寧に説明する"
+        },
+        "obj_event": {
+          "subject": "薬局のカウンター",
+          "predicate": "今",
+          "object": " 薬の説明を受けている",
+          "describe": "薬局のカウンター 薬の説明を受けている",
+          "address": [
+            "the Ville",
+            "ヤナギ市場と薬局",
+            "ショップ",
+            "薬局のカウンター"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:30:00",
+        "duration": 30
+      },
+      "coord": [
+        78,
+        53
+      ]
+    },
+    "カルメン": {
+      "config_path": "assets/village/agents/カルメン/agent.json",
+      "status": {
+        "poignancy": 7
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "夜11時に寝るため、就寝準備を始める",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝7時に起床し、ゆっくりと目を覚ます。窓の外の光を見て、今日のスケジュールを確認する。",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "ハーヴィーオーク供給店を8時に開店し、カウンターに立つ。顧客に「おはようございます！今日は何を買いますか？」と微笑みながら声をかける。",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "新しい顧客が訪れるので、そのニーズに応じて商品を手伝い、一緒に選びながら話す。",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "新しい顧客に挨拶し、今日の買い物を一緒に考える",
+                "start": 540,
+                "duration": 5
+              },
+              {
+                "idx": 1,
+                "describe": "顧客のニーズに応じて商品を提案する",
+                "start": 545,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "購入品の組み合わせを相談しながら選ぶ",
+                "start": 555,
+                "duration": 15
+              },
+              {
+                "idx": 3,
+                "describe": "顧客に商品の使い方を説明する",
+                "start": 570,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "買い物リストに合う商品をおすすめする",
+                "start": 580,
+                "duration": 10
+              },
+              {
+                "idx": 5,
+                "describe": "顧客の反応を確認し、次への対応を考える",
+                "start": 590,
+                "duration": 5
+              },
+              {
+                "idx": 6,
+                "describe": "新しい顧客が訪れるので、そのニーズに応じて商品を手伝い、一緒に選びながら話す。",
+                "start": 595,
+                "duration": 5
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "10時ごろ、2人の顧客が訪れて、それぞれの買い物リストに合わせておすすめを提案する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "11時、午前中の忙しさが落ち着き、少し休憩を取り、コーヒーを飲みながら、ルームメイトのタマラと話す。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼12時に昼ご飯を食べる。近くのカフェで、タマラと一緒にパンとサラダを食べながら、ネットショップの進捗を話す。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "昼ご飯後、少し休憩をとり、店の整理をし、商品の陳列を整える。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "14時、新商品の画像を撮影し、ネットショップにアップロードする準備をする。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "15時、タマラと一緒にネットショップのページをチェックし、改善点や新しいカテゴリーの提案を行う。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後6時に閉店の準備を始める。顧客のフィードバックをメモし、明日の開店に活かす。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "17時、ハーヴィーオーク供給店を閉店し、カウンターを整理し、夜の準備を進める。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "18時、ローズ・バーに移動し、カウンターに座って、カクテルを飲んでリラックスする。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "19時、ローズ・バーで友人と話しながら、新しい顧客の声を聞くためのアンケートを共有する。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "20時、ネットショップの更新を確認し、明日の販売予定を調整する。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "21時、寝る前に、タマラと今夜の出来事を話して、お互いの生活に感動を共有する。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "22時、寝る前の準備を整え、スマホをいじりながら、明日の開店のチェックリストを確認する。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "23時、ゆっくりと寝る。夜11時ごろに眠りにつく",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "カルメンはハーヴィーオーク供給店を管理し、ルームメイトのタマラと住みながら、ネットショップの拡大に取り組んでいる。",
+      "action": {
+        "event": {
+          "subject": "カルメン",
+          "predicate": "今",
+          "object": "顧客の反応を確認し、次への対応を考える",
+          "describe": "顧客の反応を確認し、次への対応を考える",
+          "address": [
+            "the Ville",
+            "ハーヴィーオーク供給店",
+            "供給店",
+            "供給店のカウンター"
+          ],
+          "emoji": "顧客の反応を確認し、次への対応を考える"
+        },
+        "obj_event": {
+          "subject": "供給店のカウンター",
+          "predicate": "今",
+          "object": " 顧客の注文を受け付けている",
+          "describe": "供給店のカウンター 顧客の注文を受け付けている",
+          "address": [
+            "the Ville",
+            "ハーヴィーオーク供給店",
+            "供給店",
+            "供給店のカウンター"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:50:00",
+        "duration": 5
+      },
+      "coord": [
+        67,
+        46
+      ]
+    },
+    "タマラ": {
+      "config_path": "assets/village/agents/タマラ/agent.json",
+      "status": {
+        "poignancy": 9
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "児童書の執筆を始める",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "児童書の執筆を続ける、物語のキャラクターの行動を描く",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "児童書の物語の設定を整理する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "キャラクターの性格を思い浮かべる",
+                "start": 550,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "子どもがどんな情景で行動するかを想像する",
+                "start": 565,
+                "duration": 20
+              },
+              {
+                "idx": 3,
+                "describe": "キャラクターの行動をストーリーに組み込む",
+                "start": 585,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "物語の流れを5分間でチェックする",
+                "start": 595,
+                "duration": 5
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "大人向け漫画の執筆を進める、キャラクターの心理を描写する",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "アイデアをメモに書き留める、テーマやストーリーの構造を整理する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後1時ごろ、窓の外を眺めながら、新しい物語の世界観を想像する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "短い休憩を取る、コーヒーを飲んで集中力を回復する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "児童書の執筆を続ける、子どもの視点で物語を書く",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "大人向け漫画の執筆を続ける、シーンの展開を細かく描く",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "ルームメイトのカルメンと電話で話す、お互いの創作の進捗を共有する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕方6時に夕食をとる",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "くつろいでテレビを見る、子ども向け番組を楽しむ",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "新しい物語の草稿を整理し、日記に執筆の進捗を記録する",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に本を読む、子どもの視線に敏感な物語を読む",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備をする、照明を消し、服を脱ぎ、布団に横たわる",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "タマラはルームメイトのカルメンと住みながら、新しい児童書シリーズを執筆し、大人向け漫画シリーズも制作している。",
+      "action": {
+        "event": {
+          "subject": "タマラ",
+          "predicate": "今",
+          "object": "キャラクターの行動をストーリーに組み込む",
+          "describe": "キャラクターの行動をストーリーに組み込む",
+          "address": [
+            "the Ville",
+            "タマラとカルメンの家",
+            "タマラの部屋",
+            "ベッド"
+          ],
+          "emoji": "キャラクターの行動をストーリーに組み込む"
+        },
+        "obj_event": {
+          "subject": "ベッド",
+          "predicate": "今",
+          "object": " 使われていない",
+          "describe": "ベッド 使われていない",
+          "address": [
+            "the Ville",
+            "タマラとカルメンの家",
+            "タマラの部屋",
+            "ベッド"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:45:00",
+        "duration": 10
+      },
+      "coord": [
+        54,
+        74
+      ]
+    },
+    "アーサー": {
+      "config_path": "assets/village/agents/アーサー/agent.json",
+      "status": {
+        "poignancy": 3
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "起床し、ゆっくりと目を覚ます。朝の風景を眺めながら、今日の開店準備に備える。",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "ローズ・バーの照明を調整し、カウンターの陳列を整える。今日のカクテルメニューに新しく追加された「ミスト・オブ・ローズ」の準備を進める。",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "バーテンダーのスケジュールを確認し、今日の顧客のリクエストをメモする。特に新しい来客の名前や好みを記録する。",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "バーテンダーのスケジュールを確認する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "今日の顧客のリクエストをメモする",
+                "start": 550,
+                "duration": 20
+              },
+              {
+                "idx": 2,
+                "describe": "新しい来客の名前を記録する",
+                "start": 570,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "新しい来客の好みをメモする",
+                "start": 580,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "顧客のリクエストを整理して、来週のメニューに反映する準備をする",
+                "start": 590,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "カクテルの調製に必要な材料を確認し、冷蔵庫と調理台を整理。新しく開発したカクテルの味わいを再確認する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "店の外観を確認し、地域の風景や人々に親しみをもたらすように、カウンターの飾りを少し整える。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "午前中の準備が終了したことを確認し、今日の開店前に一度、顧客の声に耳を傾けるために、近くのカフェで1人だけの話を聞く。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後の準備を進めるため、カクテルの材料を冷蔵庫に整え、新しいレシピの試作を短い間で行う。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後4時ごろに夕食をとるため、家に帰って料理を準備。地元の食材を使ったシンプルなペパローロとサラダを調理する。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "夕食を終え、ゆっくりと座って、今日の出来事を振り返りながら、友人と電話で話す。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後5時に開店するため、カクテルの調製を再確認し、新しいカクテルの試飲を準備する。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "ローズ・バーに到着し、カウンター前に立つ。顧客に笑顔で挨拶し、「今日は特別なカクテルを用意しました」と伝える。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夜の来客に合わせて、カクテルの提供を進める。特に若い世代の顧客に「ミスト・オブ・ローズ」を紹介し、楽しさを共有する。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "カクテルの提供中に、顧客の話題を聞き、その中で共感できる話をしながら、一緒に話す時間を設ける。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "夜の来客が増えるにつれて、カクテルの調製を丁寧に進める。顧客に「今日はあなたの笑顔が、このバーの味わいを変えてる」と伝える。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "夜10時に閉店の準備を始める。今日の顧客の感想をメモし、明日のメニューに活かす。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "店を整理し、カクテルの材料を収納。翌日の開店に向けて、照明や陳列を整える。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に就寝する。寝る前に、今日の出来事を日記に書き留め、明日の開店に備える。",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "アーサーは町で人気のバーを経営しており、カクテルの知識を学んで独自のカクテルを作っている。",
+      "action": {
+        "event": {
+          "subject": "アーサー",
+          "predicate": "今",
+          "object": "顧客のリクエストを整理して、来週のメニューに反映する準備をする",
+          "describe": "顧客のリクエストを整理して、来週のメニューに反映する準備をする",
+          "address": [
+            "the Ville",
+            "ローズ・バー",
+            "バー",
+            "キッチン"
+          ],
+          "emoji": "顧客のリクエストを整理して、来週のメニューに反映する準備をする"
+        },
+        "obj_event": {
+          "subject": "キッチン",
+          "predicate": "今",
+          "object": " メニューの準備を進める",
+          "describe": "キッチン メニューの準備を進める",
+          "address": [
+            "the Ville",
+            "ローズ・バー",
+            "バー",
+            "キッチン"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:50:00",
+        "duration": 10
+      },
+      "coord": [
+        61,
+        20
+      ]
+    },
+    "イザベラ": {
+      "config_path": "assets/village/agents/イザベラ/agent.json",
+      "status": {
+        "poignancy": 14
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "ホブズ・カフェを開店し、カウンター前に立つ",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "お客様に挨拶し、コーヒーの準備を進める",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "お客様に挨拶し、コーヒーの準備を進める",
+                "start": 540,
+                "duration": 30
+              },
+              {
+                "idx": 1,
+                "describe": "今日のメニューを確認し、バレンタイン用の特別メニューを準備する",
+                "start": 570,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "カウンターの清掃を行い、パーティ前の準備を整える",
+                "start": 585,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "参加者にバレンタインパーティーの進行を確認する",
+                "start": 595,
+                "duration": 5
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "お客様に挨拶し、カフェの運営を進める",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "新しい顧客のニーズに応えるため、メニューの調整を進める",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "バレンタインパーティーの準備を進める（飾りの陳列、お菓子の準備）",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "バレンタインパーティーの準備を進める（パーティーアイテムのチェック、音楽の準備）",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "バレンタインパーティーの準備を進める（参加者の名前を確認し、個別にメッセージを書く）",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "バレンタインパーティーの準備を進める（カタログを作成し、参加者に配布する）",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "バレンタインパーティーの準備を進める（カフェの雰囲気を整え、照明や音楽を調整）",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "参加者にバレンタインパーティーの開催時間（午後5時）を再確認し、メッセージを送る",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "バレンタインパーティーの準備を終え、カフェを整える",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "ホブズ・カフェでバレンタインパーティーを開催する",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "パーティーの後、参加者と笑い合い、温かい会話をする",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "くつろいでテレビを見る",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "イザベラは2月14日午後5時にホブズ・カフェでバレンタインパーティーを開催する予定で、準備を進めつつ、参加者には午後5時〜7時にホブズ・カフェで集まるよう伝えている。",
+      "action": {
+        "event": {
+          "subject": "イザベラ",
+          "predicate": "今",
+          "object": "カウンターの清掃を行い、パーティ前の準備を整える",
+          "describe": "カウンターの清掃を行い、パーティ前の準備を整える",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "キッチンのシンク"
+          ],
+          "emoji": "カウンターの清掃を行い、パーティ前の準備を整える"
+        },
+        "obj_event": {
+          "subject": "キッチンのシンク",
+          "predicate": "今",
+          "object": " 水を溜めている",
+          "describe": "キッチンのシンク 水を溜めている",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "キッチンのシンク"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:45:00",
+        "duration": 10
+      },
+      "coord": [
+        77,
+        19
+      ]
+    },
+    "サム": {
+      "config_path": "assets/village/agents/サム/agent.json",
+      "status": {
+        "poignancy": 25
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 120,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "朝5時に起床し、身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝のコーヒーを淹れ、妻ジェニファーと短い会話をする",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "ジョンソン公園に出て、手入れをしながら散歩を始める",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "公園の道を歩きながら、近隣の住民に「地方市長選挙」の情報を軽く話す",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "ジョンソン公園の道を歩きながら、近隣の住民に「地方市長選挙」の情報を軽く話す",
+                "start": 540,
+                "duration": 30
+              },
+              {
+                "idx": 1,
+                "describe": "選挙のポイントを簡潔にまとめる",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 2,
+                "describe": "ジェニファーがサムにアートワークショップの準備を確認する。",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 3,
+                "describe": "話す内容を確認し、聞き手の反応を観察する",
+                "start": 570,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "風が花をなでながら光をなぞっている。",
+                "start": 580,
+                "duration": 0
+              },
+              {
+                "idx": 5,
+                "describe": "話す際のトーンや表情を調整する",
+                "start": 580,
+                "duration": 10
+              },
+              {
+                "idx": 6,
+                "describe": "話す内容をノートに書き留める",
+                "start": 590,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 9,
+            "describe": "公園のベンチで、隣の年配の男性と軍時代の話題を共有する",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 10,
+            "describe": "ホブズ・カフェに移動し、朝の読書を始める",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "昼ご飯を食べる。ハンバーグと野菜のサラダを選び、ジェニファーと一緒に食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯後に、公園の花壇を少し整え、手入れを続ける",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後2時に少し休む。カフェの窓の外を眺めながら、海軍時代の思い出を思い出す",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "新聞を読みながら、地方選挙の候補者についての情報を収集する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "家に戻って、妻と話しながら、自分の立候補の意図を説明する",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "夕方の散歩を計画し、近所の子供たちに「賢い人間としての暮らし」について語る",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "午後5時に夕食をとる。カレーと野菜のスープを選び、家族で共有する",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "近くのカフェで、友人と話す。軍の体験や、地域の課題についてユーモアを交えながら語る",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "帰宅後、テレビを見ながら、近隣のイベントやニュースを聞く",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "夜の読書を始める。軍時代のエピソードや、地域の未来についての本を読む",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に、妻に「今日の話題」をまとめて伝える",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "夜9時に寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_5",
+            "node_3",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_4",
+            "node_2"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "ジェニファー",
+          "サム、おはよう。今日のアートワークショップ、準備できてる？"
+        ],
+        [
+          "サム",
+          "おはよう。アートワークショップ、準備できてる？"
+        ],
+        [
+          "カルロス",
+          "花の香りが、風に揺れる。"
+        ],
+        [
+          "サム",
+          "風が花をなでるみたいだね。"
+        ],
+        [
+          "カルロス",
+          "風が花の葉をなでながら、光をなぞっている。"
+        ]
+      ],
+      "currently": "サムは妻ジェニファーと暮らし、公園の手入れと読書を楽しむ人物で、次の選挙で地方市長に立候補することを近所に知らせている。",
+      "action": {
+        "event": {
+          "subject": "サム",
+          "predicate": "今",
+          "object": "話す内容をノートに書き留める",
+          "describe": "話す内容をノートに書き留める",
+          "address": [
+            "the Ville",
+            "ジョンソン公園",
+            "公園",
+            "公園の庭園"
+          ],
+          "emoji": "話す内容をノートに書き留める"
+        },
+        "obj_event": {
+          "subject": "公園の庭園",
+          "predicate": "今",
+          "object": " に花が咲いている",
+          "describe": "公園の庭園 に花が咲いている",
+          "address": [
+            "the Ville",
+            "ジョンソン公園",
+            "公園",
+            "公園の庭園"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:50:00",
+        "duration": 10
+      },
+      "coord": [
+        34,
+        47
+      ]
+    },
+    "ジェニファー": {
+      "config_path": "assets/village/agents/ジェニファー/agent.json",
+      "status": {
+        "poignancy": 16
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "朝5時に起床し、身支度を済ませる",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に朝ごはんを食べる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝7時に夫サムと話す",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "朝8時に水彩画を描く",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "朝9時に水彩画の下準備をし、素材を整える",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "水彩画の素材を整える",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "過去の作品を確認し、テーマを決める",
+                "start": 550,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "必要な塗料と道具を準備する",
+                "start": 565,
+                "duration": 5
+              },
+              {
+                "idx": 3,
+                "describe": "ジェニファーがサムにアートワークショップの準備を確認する。",
+                "start": 570,
+                "duration": 0
+              },
+              {
+                "idx": 4,
+                "describe": "キャンバスを用意し、サイズを確認する",
+                "start": 570,
+                "duration": 15
+              },
+              {
+                "idx": 5,
+                "describe": "必要な色のサンプルを用意する",
+                "start": 585,
+                "duration": 10
+              },
+              {
+                "idx": 6,
+                "describe": "下準備のチェックリストを作成する",
+                "start": 595,
+                "duration": 5
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "午前10時に若いアーティストたちに指導する",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "指導中にアーティストたちの作品に感想を言い、創造的なアイデアを共有する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "正午12時に昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後1時に少し寝る",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後1時半から2時まで、ゆっくりと休む",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "午後3時に作品展の準備を進める",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "作品展の陳列スペースを整理し、展示用のフレームを調整する",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "作品展の準備に加え、若いアーティストたちの作品を一覧にまとめる",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕方7時にアートのワークショップを準備する",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "ワークショップの準備を進める。参加者に向けた資料を作成し、アートの歴史や水彩の魅力を説明する資料を整備",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "ワークショップの準備が終わるまで、細部をチェックし、音響や照明の調整を確認",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "夜21時に家で夕食のあと、自分の過去の作品を再び見直し、思い出を語る",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "夜22時に夫サムと話す。2024年の作品展の計画について共有し、お互いの意見を交わす",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜9時に就寝する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_3",
+            "node_2"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_1"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "ジェニファー",
+          "サム、おはよう。今日のアートワークショップ、準備できてる？"
+        ],
+        [
+          "サム",
+          "おはよう。アートワークショップ、準備できてる？"
+        ]
+      ],
+      "currently": "ジェニファーは結婚40年の夫サムと一緒に暮らしており、自身の作品展の準備をしている。また、若いアーティストたちを指導し、彼らの創造力を引き出す手助けをしている。",
+      "action": {
+        "event": {
+          "subject": "ジェニファー",
+          "predicate": "今",
+          "object": "必要な色のサンプルを用意する",
+          "describe": "必要な色のサンプルを用意する",
+          "address": [
+            "the Ville",
+            "ムーア家の家",
+            "主寝室",
+            "キッチン"
+          ],
+          "emoji": "必要な色のサンプルを用意する"
+        },
+        "obj_event": {
+          "subject": "キッチン",
+          "predicate": "今",
+          "object": "暇",
+          "describe": "キッチン",
+          "address": [
+            "the Ville",
+            "ムーア家の家",
+            "主寝室",
+            "キッチン"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:45:00",
+        "duration": 10
+      },
+      "coord": [
+        39,
+        61
+      ]
+    },
+    "フランシスコ": {
+      "config_path": "assets/village/agents/フランシスコ/agent.json",
+      "status": {
+        "poignancy": 25
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "夜11時に寝る前には、その日の出来事を整理し、翌日のスケジュールを確認する",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝7時に起床し、ゆっくりと目を覚ますとともに、共居スペースのウェブシリーズの当日のテーマを確認する",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "朝7時半に朝ごはんを食べる。パンとジャム、ヨーグルト、フルーツを食べながら、友人との会話で笑いを引き出すように話す",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "朝のリラクゼーションとして、10分間の深呼吸と軽いストレッチを行う。これは、即興コメディの準備として心身を整えるため",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "10分間の深呼吸を行う",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "軽いストレッチを実施する",
+                "start": 550,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "呼吸と体の動きを意識しながら、即興コメディのリズムを体感する",
+                "start": 560,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "今日の即興コメディのテーマを頭に思い浮かべる",
+                "start": 570,
+                "duration": 5
+              },
+              {
+                "idx": 4,
+                "describe": "心の準備として、笑いの源を思い出す",
+                "start": 575,
+                "duration": 5
+              },
+              {
+                "idx": 5,
+                "describe": "呼吸のリズムに合わせて、体の緊張をほぐす",
+                "start": 580,
+                "duration": 5
+              },
+              {
+                "idx": 6,
+                "describe": "友人の声に合わせて、軽い会話の流れをイメージする",
+                "start": 585,
+                "duration": 5
+              },
+              {
+                "idx": 7,
+                "describe": "心の状態を確認し、リラックスした状態を維持する",
+                "start": 590,
+                "duration": 0
+              },
+              {
+                "idx": 8,
+                "describe": "二人は資料の構成と必要な項目を再確認する。",
+                "start": 590,
+                "duration": 0
+              },
+              {
+                "idx": 9,
+                "describe": "体の感覚を整理する",
+                "start": 590,
+                "duration": 10
+              },
+              {
+                "idx": 10,
+                "describe": "今日のリラクゼーションを振り返って、次に活かす点を決める",
+                "start": 600,
+                "duration": 5
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "共居スペースのウェブシリーズの脚本を書く。今日のテーマは「共居生活の小さな不思議」で、リアルな出来事にユーモアを加えるように構成",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "脚本を書いた後、友人とオンラインで意見交換。笑いのポイントを共有し、さらに自然な会話に仕上げる",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる。簡単なサンドイッチと野菜を食べ、会話の中で「共居スペースの日常」について軽く話す",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午前10時までにウェブシリーズの脚本を書いた後、15分間の休憩を取る。この時間は、音楽を聴きながらリラックスする時間として使う",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後のトレーニングの準備を始める。即興コメディのための「反応力」を高めるため、短いスケッチを2つ練習する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "即興コメディの練習を行う。友人と一緒に、共居スペースの出来事に即興で反応する練習を実施。笑いの自然な流れを意識する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後3時に午後のトレーニングを終えて、夕食の準備をする。キッチンで簡単な料理を手作りし、友人にシェアする準備をする",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "夕食の準備を終える。料理の過程で、友人との会話に笑いを交えるように話す。食べながら「共居生活の面白さ」を語る",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食をとる。6時ごろに夕食をとる。友人と一緒に食事をしながら、ウェブシリーズのアイデアを共有する",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "夕食後、15分間の自由時間。この時間は、新しい笑いのアイデアをメモしたり、音楽を聴いたりするリラクゼーションタイム",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "即興コメディの練習を再開。今日の練習の成果を友人と共有し、笑いの自然な流れを再現するように演じる",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に、ウェブシリーズの脚本と即興コメディの練習を振り返る。明日のテーマを予想し、笑いの方向性を整理する",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備をする。照明を消し、夜の音楽を流し、心を落ち着かせるように過ごす",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に寝る。深い睡眠に入り、明日の創作活動に準備する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_7",
+            "node_6",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [
+        [
+          "フランシスコ",
+          "うん、資料の構成、もう一度見直そうか。"
+        ],
+        [
+          "アビゲイル",
+          "うん、資料に必要な項目をもう一度確認しよう。"
+        ]
+      ],
+      "currently": "フランシスコは共居スペースでの生活をテーマにしたウェブシリーズを制作し、即興コメディにも取り組んでいる。",
+      "action": {
+        "event": {
+          "subject": "フランシスコ",
+          "predicate": "会話",
+          "object": "アビゲイル",
+          "describe": "二人は資料の構成と必要な項目を再確認する。",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "共用ラウンジ",
+            "共用ラウンジのソファ"
+          ],
+          "emoji": "💬"
+        },
+        "obj_event": null,
+        "start": "20240213-09:50:00",
+        "duration": 0
+      },
+      "coord": [
+        35,
+        30
+      ]
+    },
+    "ヘイリー": {
+      "config_path": "assets/village/agents/ヘイリー/agent.json",
+      "status": {
+        "poignancy": 0
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "寝る",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "寝る",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "寝る",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "寝る",
+                "start": 540,
+                "duration": 60
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "起床し、身支度を済ませる。朝の光を浴びながら、自分のアーティスト共居スペースの環境を整備し、執筆に必要な道具を準備する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "アーティスト共居スペースで執筆を開始。新しい小説の構成を書き出し、キャラクターの背景や世界観を構築する。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "執筆を続ける。物語の流れを意識しながら、シーンの展開を細かく描き、異なる文化の文学に影響を受けた表現を試みる。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "執筆を終え、筆を置き、一時的に休憩。アーティスト共居スペースの他のメンバーとオンラインで短い会話をする。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後1時ごろに少し休憩。カフェでコーヒーを飲んで、異文化の文学（例：アフリカの伝承、東南アジアの詩）を読みながら、そのスタイルに影響を受けた物語の構造をメモする。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "異なる文化の文学を読み続ける。特に、ポリネシアの物語やインドの古典文学を読むことで、物語の韻律や構造にインスパイアを得る。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "ポッドキャストの構想を整理。テーマを3つに絞り、それぞれのエピソードの流れや対話の形を書き出す。例：「異文化の物語を語る」、「アーティストの日常」など。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "ポッドキャストの構想をさらに詳細に仕上げ、ナレーションのスタイルやゲストの選び方を検討。また、音声表現のための音楽の選定も検討する。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "午後6時ごろに夕食をとる。地元のレストランで、多様な文化を反映した料理（例：カリフォルニア風インド料理）を味わいながら、食事中に物語のテーマを語る。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "夕食後、新しい物語のアイデアをメモ。特に、異文化の価値観が交錯する場面を想定し、それを物語の核として書き出す。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "アーティスト共居スペースのメンバーとオンラインで、ポッドキャストのアイデアを共有。フィードバックを受け、物語の展開を調整する。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "執筆のまとめと翌日の計画を確認。今日の執筆成果を日記に残し、明日の執筆テーマを決める。また、ポッドキャストの第一話のスケジュールを調整する。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "新しい物語のアイデアを整理し、スクリプトの初期バージョンを構築。音声のための対話の流れを書き出し、後日ポッドキャストに活かす。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "ヘイリーはアーティスト共居スペースを舞台にした小説を執筆しており、ポッドキャストの開始も計画している。",
+      "action": {
+        "event": {
+          "subject": "ヘイリー",
+          "predicate": "今",
+          "object": "睡眠中",
+          "describe": "",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "ヘイリーの部屋",
+            "ベッド"
+          ],
+          "emoji": "😴"
+        },
+        "obj_event": {
+          "subject": "ベッド",
+          "predicate": "使用中",
+          "object": "ヘイリー",
+          "describe": "",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "ヘイリーの部屋",
+            "ベッド"
+          ],
+          "emoji": "🛌"
+        },
+        "start": "20240213-09:00:00",
+        "duration": 60
+      },
+      "coord": [
+        26,
+        32
+      ]
+    },
+    "ラジーフ": {
+      "config_path": "assets/village/agents/ラジーフ/agent.json",
+      "status": {
+        "poignancy": 12
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "寝る",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "寝る",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "朝9時に起床し、簡単な身支度を済ませる",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "朝起きる",
+                "start": 540,
+                "duration": 5
+              },
+              {
+                "idx": 1,
+                "describe": "洗顔と歯磨きをする",
+                "start": 545,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "簡単な着替えをする",
+                "start": 555,
+                "duration": 5
+              },
+              {
+                "idx": 3,
+                "describe": "朝のコーヒーを飲む",
+                "start": 560,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "ギターを準備する",
+                "start": 570,
+                "duration": 5
+              },
+              {
+                "idx": 5,
+                "describe": "ギターの調整を確認する",
+                "start": 575,
+                "duration": 5
+              },
+              {
+                "idx": 6,
+                "describe": "朝のストレッチを行う",
+                "start": 580,
+                "duration": 10
+              },
+              {
+                "idx": 7,
+                "describe": "朝の瞑想を5分する",
+                "start": 590,
+                "duration": 5
+              },
+              {
+                "idx": 8,
+                "describe": "朝9時に起床し、簡単な身支度を済ませる",
+                "start": 595,
+                "duration": 5
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "朝10時にギターを弾いて練習する",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "朝11時にアートの創作に取り組む（キャンバスに絵を描く）",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼12時に休憩をとる、軽いストレッチをしながら外の風景を眺める",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後1時ごろにアートの創作に取り組む（色の調和を意識して絵を描く）",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後2時ごろにギターの音を録音し、自分の演奏を聴きながら改善点を確認する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "午後3時ごろにアートの創作に取り組む（新しいテーマの草稿を書く）",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後4時ごろにソロ公演の準備を進める（ステージの構成や音楽の流れを練る）",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "夕方5時ごろに夕食をとる（海老や野菜の和食を一緒に食べる）",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕方6時ごろにソロ公演の準備を進める（衣装の確認や、音響のチェックを行う）",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "夕方7時ごろにアートの創作に取り組む（公演のテーマに合わせた作品を描く）",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "夜7時ごろにギターを弾きながら、自分の音楽を録音し、感情を込めて演奏する",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "夜8時ごろに静かな空間で、自分の創作日記を書く（公演への思いやアートの感想を記録）",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "夜9時ごろに寝る前のリラクゼーションタイムを過ごす（深呼吸や軽い瞑想）",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜10時ごろに寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "ラジーフは初のソロ公演を準備しながら、アーティストの共同生活スペースを拠点に活動し、最近はギター演奏を楽しんでいる。",
+      "action": {
+        "event": {
+          "subject": "ラジーフ",
+          "predicate": "今",
+          "object": "朝のストレッチを行う",
+          "describe": "朝のストレッチを行う",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "ラジーフの部屋",
+            "ベッド"
+          ],
+          "emoji": "朝のストレッチを行う"
+        },
+        "obj_event": {
+          "subject": "ベッド",
+          "predicate": "今",
+          "object": " 使われていない",
+          "describe": "ベッド 使われていない",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "ラジーフの部屋",
+            "ベッド"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:40:00",
+        "duration": 10
+      },
+      "coord": [
+        26,
+        18
+      ]
+    },
+    "ラトーヤ": {
+      "config_path": "assets/village/agents/ラトーヤ/agent.json",
+      "status": {
+        "poignancy": 39
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "旅をテーマにした写真の創作に取り組む",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "カメラの設定を確認し、撮影用の照明やフィルターを準備する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "カメラの設定を確認する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "撮影用の照明を準備する",
+                "start": 550,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "フィルターの種類を確認する",
+                "start": 565,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "過去の撮影データを確認する",
+                "start": 575,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "撮影シーンの構図を計画する",
+                "start": 585,
+                "duration": 15
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "メールや情報の確認を行う（特に地方市長選挙の報道や政策動向に関するニュース）",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "地元の政治イベントや公共施設の写真を収集するため、過去のデータを分析する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "昼休みを利用して、写真の構図や光の使い方についての論文を読み込む",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "写真のテーマ「旅」に沿った、地元の風景や人々の行動を観察するためのノートを整備する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "地元の政治動向に関する情報を、データベースに整理し、分析ツールで可視化する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後の写真編集を開始し、選抜された写真をリファインする",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "写真の素材を整理し、カテゴリ分け（例：自然、人間、都市空間）で管理する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食をとる（17時30分ごろにとるため、18時ごろに実施）",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "旅をテーマにした過去の作品を鑑賞し、視覚的なスタイルの進化を分析する",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "アーティストの共同生活スペースでのディスカッションに参加する準備をする（オンライン会議に接続）",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "次の日の写真テーマを検討し、旅の意味を深めるための論理的なフレームワークを構築する",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "就寝前のリラクゼーションとして、写真のメタデータを整理し、日記に記録する",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜10時に就寝する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_9",
+            "node_8",
+            "node_7",
+            "node_6",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "ラトーヤは旅をテーマにした写真作品を制作し、アーティストの共同生活スペースを拠点に活動しながら、次回の地方市長選挙の動向に強い関心を示している。",
+      "action": {
+        "event": {
+          "subject": "ラトーヤ",
+          "predicate": "今",
+          "object": "撮影シーンの構図を計画する",
+          "describe": "撮影シーンの構図を計画する",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": "撮影シーンの構図を計画する"
+        },
+        "obj_event": {
+          "subject": "共用ラウンジのテーブル",
+          "predicate": "今",
+          "object": " ラトーヤの構図計画を支えている",
+          "describe": "共用ラウンジのテーブル ラトーヤの構図計画を支えている",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:45:00",
+        "duration": 15
+      },
+      "coord": [
+        36,
+        28
+      ]
+    },
+    "アビゲイル": {
+      "config_path": "assets/village/agents/アビゲイル/agent.json",
+      "status": {
+        "poignancy": 52
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "睡眠中",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "睡眠中",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "睡眠中",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "睡眠中",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "睡眠中",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "睡眠中",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "寝る",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "朝8時に起床し、洗面台での洗顔と髪のケアを済ませ、スマートフォンで今日のプロジェクトの進捗を確認する",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "朝9時にクライアントのアニメーションプロジェクトの進捗を確認し、今週のミーティング資料を整理する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "クライアントのアニメーションプロジェクトの進捗を確認する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "今週のミーティング資料を整理する",
+                "start": 550,
+                "duration": 20
+              },
+              {
+                "idx": 2,
+                "describe": "資料の構成を再検討し、必要な項目を追加する",
+                "start": 570,
+                "duration": 15
+              },
+              {
+                "idx": 3,
+                "describe": "プロジェクトの進捗をスプレッドシートに記録する",
+                "start": 585,
+                "duration": 5
+              },
+              {
+                "idx": 4,
+                "describe": "ミーティング資料に使用する画像を準備する",
+                "start": 590,
+                "duration": 0
+              },
+              {
+                "idx": 5,
+                "describe": "二人は資料の構成と必要な項目を再確認する。",
+                "start": 590,
+                "duration": 0
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "10時にインタラクティブアートのための新しいAIツール（例：Midjourney + TouchDesigner）の使い方を実験的に試す",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "午前11時までにインタラクティブアートの技術試行を実施し、ユーザーインターフェースの反応性を測定する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "正午12時に昼ご飯を食べる。シンプルな和食を選び、途中で手作りのナッツを一つ食べながら、創作のアイデアをメモする",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後1時30分に短い休憩を取る。カフェでコーヒーを飲みながら、過去の作品をリフレクションする",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後1時30分の休憩を終えて、アニメーションのフレームワークを再構築するためのスケジュールを手書きで作成",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "午後3時にクライアント向けアニメーションの作成を進める。特に感情の変化を描くためのトーン調整を実施",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後4時に、アニメーションのプロトタイプを他のアーティストと共有し、フィードバックを収集する",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "午後5時に、インタラクティブアートのプロトタイプにユーザーの動きを反映するためのコードを実装する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食は午後6時ごろにとる。家庭で調理した魚のステーキと野菜を食べ、食事中に創作の課題を語る",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "くつろいでテレビを見る。アニメの映像を視聴し、その動きや表現にインスパイアされる",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "20時から21時まで、デジタルアートの新しい表現手法（例：リアルタイムフィードバックのアニメ）を研究し、ノートにメモを残す",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "夜7時にアートのプロトタイプを確認し、修正を行う。特に視覚的なコントラストと動きの自然さを調整",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "22時には寝る前のリフレクションタイムを取る。今日の創造活動を振り返り、明日のテーマを決める",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に寝る。寝る前にスマートフォンに「今日の創造の日記」を保存し、翌日のスケジュールを計画する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_10",
+            "node_9",
+            "node_7",
+            "node_6",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_8"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "フランシスコ",
+          "うん、資料の構成、もう一度見直そうか。"
+        ],
+        [
+          "アビゲイル",
+          "うん、資料に必要な項目をもう一度確認しよう。"
+        ]
+      ],
+      "currently": "アビゲイルはクライアントのためにアニメーションプロジェクトを進めている。また、インタラクティブアートを創作するためにさまざまなツールや技術を試している。",
+      "action": {
+        "event": {
+          "subject": "アビゲイル",
+          "predicate": "今",
+          "object": "朝9時にクライアントのアニメーションプロジェクトの進捗を確認し、今週のミーティング資料を整理する",
+          "describe": "朝9時にクライアントのアニメーションプロジェクトの進捗を確認し、今週のミーティング資料を整理する",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": "朝9時にクライアントのアニメーションプロジェクトの進捗を確認し、今週のミーティング資料を整理する"
+        },
+        "obj_event": {
+          "subject": "共用ラウンジのテーブル",
+          "predicate": "今",
+          "object": " 資料を整理している",
+          "describe": "共用ラウンジのテーブル 資料を整理している",
+          "address": [
+            "the Ville",
+            "アーティストの共同生活スペース",
+            "共用ラウンジ",
+            "共用ラウンジのテーブル"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:00:00",
+        "duration": 60
+      },
+      "coord": [
+        36,
+        28
+      ]
+    },
+    "カルロス": {
+      "config_path": "assets/village/agents/カルロス/agent.json",
+      "status": {
+        "poignancy": 53
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "目を覚まして、部屋の窓を開け、夜風に包まれながら静かに呼吸を整える",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "自然の音に耳を傾けながら、詩の最初の行を口にした。その瞬間、心の奥底から「野性の声」が湧き上がる",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "木の葉の動きを観察しながら、詩の構造を筆に刻む。率直な感情をそのまま表現する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "自然の音に耳を傾けながら、詩の最初の行を口にした",
+                "start": 540,
+                "duration": 5
+              },
+              {
+                "idx": 1,
+                "describe": "葉の動きを観察しながら、詩のテーマを決める",
+                "start": 545,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "感覚的な描写を筆に刻む",
+                "start": 555,
+                "duration": 20
+              },
+              {
+                "idx": 3,
+                "describe": "率直な感情をそのまま表現する",
+                "start": 575,
+                "duration": 5
+              },
+              {
+                "idx": 4,
+                "describe": "風が花をなでながら光をなぞっている。",
+                "start": 580,
+                "duration": 0
+              },
+              {
+                "idx": 5,
+                "describe": "詩の構造を調整する",
+                "start": 580,
+                "duration": 20
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "創作ワークショップに参加。他の詩人との対話の中で、自分の野性を語り、反応を受ける",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "ワークショップの後、黙って自然の中を歩き、音と光に反応しながら内面を再構築する",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる。シンプルな料理にのみ、自分の感覚を映し出す",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "休憩。静かにコーヒーを飲みながら、自然の風景を頭の中の詩に変換する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "自然の美を観察しながら、自分の詩のテーマを再考。野性と静けさの境界を問う",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "詩集の書き直しに取り組む。前日の稿を批判的に読み直し、非友好的な部分を削ぎ、率直さを強調する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "詩の構文を変更し、自然の動きに合わせてリズムを整える。表現の「野性」を再定義する",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "午後の自然観察を続ける。遠くの山や川の影を詩に変換し、それをメモする",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食を食べる。午後5時ごろにとる。地元のカフェで、シンプルな料理と黒コーヒーを飲む",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "家に戻り、部屋の灯りを消す。静かに、自然の音を聞きながら、詩の新作を読み直す",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "独り、窓の外の夜空を見上げながら、新たな詩のアイデアを思いつく。その瞬間を記録する",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に、自分の詩集の進捗をノートにまとめる。すべての行動が詩になるようにする",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備をする。服を脱ぎ、布団に横たわる。夜の静けさに耳を澄ませる",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_7",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": [
+            "node_6"
+          ]
+        }
+      },
+      "chats": [
+        [
+          "カルロス",
+          "花の香りが、風に揺れる。"
+        ],
+        [
+          "サム",
+          "風が花をなでるみたいだね。"
+        ],
+        [
+          "カルロス",
+          "風が花の葉をなでながら、光をなぞっている。"
+        ]
+      ],
+      "currently": "カルロスは自然界の美を探求する詩集を執筆し、創作ワークショップでスキルを磨いている。",
+      "action": {
+        "event": {
+          "subject": "カルロス",
+          "predicate": "今",
+          "object": "詩の構造を調整する",
+          "describe": "詩の構造を調整する",
+          "address": [
+            "the Ville",
+            "カルロスのアパート",
+            "主寝室",
+            "デスク"
+          ],
+          "emoji": "詩の構造を調整する"
+        },
+        "obj_event": {
+          "subject": "デスク",
+          "predicate": "今",
+          "object": " 詩の構造を調整している",
+          "describe": "デスク 詩の構造を調整している",
+          "address": [
+            "the Ville",
+            "カルロスのアパート",
+            "主寝室",
+            "デスク"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:40:00",
+        "duration": 20
+      },
+      "coord": [
+        94,
+        21
+      ]
+    },
+    "ジョージ": {
+      "config_path": "assets/village/agents/ジョージ/agent.json",
+      "status": {
+        "poignancy": 34
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に起床し、朝の一連の身支度を済ませる",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝ごはんを食べる",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "数学の論文を読み、特に自然現象における数列のパターンを分析する",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "過去の数学論文を比較し、論理的構造の進化を観察する",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "過去の数学論文を整理して、テーマ別に分類する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "論文の構造を分析し、論理的流れを図解する",
+                "start": 550,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "1980年代の論文と2020年代の論文を比較する",
+                "start": 565,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "数列パターンの共通点をリストアップする",
+                "start": 575,
+                "duration": 15
+              },
+              {
+                "idx": 4,
+                "describe": "論理的構造の進化を記録するノートを作成する",
+                "start": 590,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "最新の数学理論の授業に参加する（オンライン講義）",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "授業の内容をメモし、個人の分析フレームワークに組み込む",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる（シンプルな食事で、数学的バランスを意識）",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後の研究スペースに移動し、自然界のパターン（例：花の対称性や生物の成長）を観察する",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "数理モデルを手書きで構築し、フィボナッチ数列の出現を検証する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "研究ノートに、自然現象における数学的パターンの仮説を記録する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "自然界における数学のパターンを研究する（実際のデータや写真をもとに分析）",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "地元市長選挙の候補者について、複数の立候補者の政策を論理的に比較・評価する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食をとる（午後4時ごろにとる）",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "地元の市民との対話で、選挙の数学的視点（例：支持率の変動パターン）を議論する",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "数学の問題を解く（難問のパズルや論理パラドックスに挑戦）",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "解いた問題の結果を分析し、新たな仮説を形成する（分析的思考を深化）",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "研究の進捗を日記にまとめる（論理的構成で、パターンと理論の関連を明確に）",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "寝る",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "ジョージは自然界における数学のパターンを探求する研究プロジェクトに取り組んでいる。また、最新の数学理論を学ぶために授業にも参加している。さらに、ジョージは来月の地元市長選挙に誰が立候補するかにも興味があり、この件についてよく他の人と話している。",
+      "action": {
+        "event": {
+          "subject": "ジョージ",
+          "predicate": "今",
+          "object": "数列パターンの共通点をリストアップする",
+          "describe": "数列パターンの共通点をリストアップする",
+          "address": [
+            "the Ville",
+            "ジョージのアパート",
+            "主寝室",
+            "黒板"
+          ],
+          "emoji": "数列パターンの共通点をリストアップする"
+        },
+        "obj_event": {
+          "subject": "黒板",
+          "predicate": "今",
+          "object": "に数列パターンの共通点が書かれている",
+          "describe": "黒板に数列パターンの共通点が書かれている",
+          "address": [
+            "the Ville",
+            "ジョージのアパート",
+            "主寝室",
+            "黒板"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:35:00",
+        "duration": 15
+      },
+      "coord": [
+        87,
+        24
+      ]
+    },
+    "ライアン": {
+      "config_path": "assets/village/agents/ライアン/agent.json",
+      "status": {
+        "poignancy": 9
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "寝る",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "寝る",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "寝る",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "起床し、身支度を済ませる",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "起床し、身支度を済ます",
+                "start": 540,
+                "duration": 15
+              },
+              {
+                "idx": 1,
+                "describe": "朝のスマートフォンを確認し、通知をチェック",
+                "start": 555,
+                "duration": 10
+              },
+              {
+                "idx": 2,
+                "describe": "衣類を整え、出かける準備をする",
+                "start": 565,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "朝の習慣を記録する",
+                "start": 575,
+                "duration": 5
+              },
+              {
+                "idx": 4,
+                "describe": "今日のタスクリストを確認する",
+                "start": 580,
+                "duration": 10
+              },
+              {
+                "idx": 5,
+                "describe": "起床し、身支度を済ませる",
+                "start": 590,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "朝ごはんを食べる",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "新しいモバイルアプリの開発に取り組む",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "15分間の短い休憩をとる（目を閉じてリラックス）",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "コードレビューを実施し、既存システムの改善点を分析する",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "最新技術（AIとモバイルUIの進化）に関する論文を読み、研究ノートを作成する",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "開発環境を整備し、新機能の実装を進める",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "開発の進捗をチームメンバーに報告し、フィードバックを収集する",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食を食べる（午後5時ごろにとる）",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "開発ログを整理し、翌日の開発計画を立案する",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "技術ブログに新しい開発ノウハウを記事化する（分析的思考を活かした記録）",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "今日の開発活動を振り返り、問題解決のポイントをメモする",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "就寝前のリラクゼーションを実施（深呼吸と瞑想）",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に就寝する",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "ライアンは新しいモバイルアプリを開発し、最新技術の研究を行っている。",
+      "action": {
+        "event": {
+          "subject": "ライアン",
+          "predicate": "今",
+          "object": "今日のタスクリストを確認する",
+          "describe": "今日のタスクリストを確認する",
+          "address": [
+            "the Ville",
+            "ライアンのアパート",
+            "主寝室",
+            "パソコンデスク"
+          ],
+          "emoji": "今日のタスクリストを確認する"
+        },
+        "obj_event": {
+          "subject": "パソコンデスク",
+          "predicate": "今",
+          "object": " タスクリストを確認している",
+          "describe": "パソコンデスク> タスクリストを確認している",
+          "address": [
+            "the Ville",
+            "ライアンのアパート",
+            "主寝室",
+            "パソコンデスク"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:40:00",
+        "duration": 10
+      },
+      "coord": [
+        66,
+        24
+      ]
+    },
+    "山本百合子": {
+      "config_path": "assets/village/agents/山本百合子/agent.json",
+      "status": {
+        "poignancy": 24
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "寝る",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "寝る",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "起床し、ゆっくりと目を覚ます。朝の体温を確認し、体の状態をチェックする。",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "朝の準備を始める。衣類を整え、必要な文書や携帯電話を確認する。",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "税務業務の準備を行う。前日の案件の整理と、今日の案件リストを詳細に作成する。",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "税法の最新動向を確認する。特に所得税の改正や、中小企業向けの補助制度の変更をチェックする。",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "税法の最新動向を確認する（所得税の改正を検索）",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "中小企業向け補助制度の変更を確認する",
+                "start": 550,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "関連する政府発表資料をPDFに保存する",
+                "start": 565,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "過去3ヶ月の税務ニュースを要約する",
+                "start": 575,
+                "duration": 10
+              },
+              {
+                "idx": 4,
+                "describe": "重要ポイントをノートにまとめる",
+                "start": 585,
+                "duration": 10
+              },
+              {
+                "idx": 5,
+                "describe": "確認した内容を翌日業務に活用できるように整理する",
+                "start": 595,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "税務ルールに関する資料を読み、過去のケーススタディを分析する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "前日の案件の進捗をメモし、今後の対応策を細部まで計画する。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "昼ご飯を食べる。しっかりとした食事をとることで、集中力と集中時間を維持する。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "15分間の休憩をとる。音楽を聴きながら、意識を落ち着け、心身のバランスを整える。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "地方市長選挙の動向を、特に選挙区の政策や税制への影響について、新聞記事や公式発表を確認する。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "税務業務の進捗を確認し、顧客の要望に応じた提案をメモする。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "税務コンプライアンスに関するメールを整理し、重要な件を優先順位に分類する。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "会議に参加する。税務相談のケースを共有し、チーム内での意見交換を行う。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "夕食をとる。午後6時ごろに、家庭の食卓でゆっくりと食事をする。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "帰宅後、自分の日記を書く。今日の行動や気づきを細部にまで記録する。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "税法の関連書籍を読み、特に不動産課税に関する章を学ぶ。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に、今日の業務の要約と明日の計画をメモする。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る前に、スマホの通知をすべてオフにし、環境を整える。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜11時に寝る。就寝前にリラクゼーションをし、心身を落ち着ける",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_6",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "山本百合子は税務コンプライアンスの業務に従事し、税法の最新動向を学びつつ、次回の地方市長選挙の動向にも関心を示している。",
+      "action": {
+        "event": {
+          "subject": "山本百合子",
+          "predicate": "今",
+          "object": "重要ポイントをノートにまとめる",
+          "describe": "重要ポイントをノートにまとめる",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "キッチン"
+          ],
+          "emoji": "重要ポイントをノートにまとめる"
+        },
+        "obj_event": {
+          "subject": "キッチン",
+          "predicate": "今",
+          "object": "暇",
+          "describe": "キッチン",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "キッチン"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:45:00",
+        "duration": 10
+      },
+      "coord": [
+        75,
+        19
+      ]
+    },
+    "アダム": {
+      "config_path": "assets/village/agents/アダム/agent.json",
+      "status": {
+        "poignancy": 48
+      },
+      "schedule": {
+        "create": "20240213-09:30:00",
+        "daily_schedule": [
+          {
+            "idx": 0,
+            "describe": "寝る",
+            "start": 0,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 1,
+            "describe": "寝る",
+            "start": 60,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 2,
+            "describe": "寝る",
+            "start": 120,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 3,
+            "describe": "寝る",
+            "start": 180,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 4,
+            "describe": "朝4時に起床し、身支度を済ませる。静かな音を立てずに、自分の思考に耳を傾けながら、今日の一日の意味を内省する。",
+            "start": 240,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 5,
+            "describe": "朝4時30分に朝ごはんを食べる。無理に多くの食べ物を摂らず、自然に育った食材に焦点を当て、その背景にある人間の生活と環境の関係を意識しながら食べる。",
+            "start": 300,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 6,
+            "describe": "朝6時に創造性の本を書く。ここでは、創造性が個人の意識や社会の構造にどのように影響するかを、哲学的な視点から論じ、具体的な例を挙げながら、読者の思考を刺激するように構成する。",
+            "start": 360,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 7,
+            "describe": "創造性のテーマに沿って、過去に学んだ哲学的理論（例：アリストテレスの「創造」という概念、カントの「感性と知性」）を整理し、メモに書き留める。",
+            "start": 420,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 8,
+            "describe": "日中の社会の動きに注目し、地方市長選挙の候補者たちの発言や政策を、アダムの「先入観に挑戦する」視点から分析する。特に、彼らの言葉に含まれる「人間の共感」や「未来へのビジョン」に焦点を当てる。",
+            "start": 480,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 9,
+            "describe": "インターネットで、地元のメディアや議論のフォーラムを訪れ、市民の声や候補者の反応を読み、その中で「創造性」と「社会の変革」の関係を検証する。",
+            "start": 540,
+            "duration": 60,
+            "decompose": [
+              {
+                "idx": 0,
+                "describe": "地元のメディアの掲載記事を確認する",
+                "start": 540,
+                "duration": 10
+              },
+              {
+                "idx": 1,
+                "describe": "議論のフォーラムの投稿を読み込む",
+                "start": 550,
+                "duration": 15
+              },
+              {
+                "idx": 2,
+                "describe": "市民の意見に共感を示すためのフレームを構築する",
+                "start": 565,
+                "duration": 10
+              },
+              {
+                "idx": 3,
+                "describe": "候補者の発言から「創造性」の要素を抽出する",
+                "start": 575,
+                "duration": 15
+              },
+              {
+                "idx": 4,
+                "describe": "「人間の共感」と「未来へのビジョン」の関連性を分析する",
+                "start": 590,
+                "duration": 10
+              }
+            ]
+          },
+          {
+            "idx": 10,
+            "describe": "午前10時に地方市長選挙の候補者情報を調べる。候補者の背景、経歴、過去の政策、そしてそれらが地域の創造性にどう影響したかを、体系的に整理する。",
+            "start": 600,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 11,
+            "describe": "これまでの情報をもとに、アダムの哲学者としての視点から、創造性が政治的選択にどう貢献するかを、短いメモとして構成する。",
+            "start": 660,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 12,
+            "describe": "正午12時に昼ご飯を食べる。食事中に、自分の創造活動と政治的関心のつながりを、内省的に語り合いながら、心のバランスを保つ。",
+            "start": 720,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 13,
+            "describe": "午後1時に少し休む。静かに瞑想する。その中で、自分の思考の流れを観察し、「創造性」と「疑問の精神」がどう相互作用しているかを、無意識のうちに記録する。",
+            "start": 780,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 14,
+            "describe": "午後2時に、過去の文章やメモを読み直し、創造性のテーマに反例や例外を発見する。それらを、哲学的に再解釈する。",
+            "start": 840,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 15,
+            "describe": "午後3時に、地元の文化イベントやアートの活動を調べ、創造性が地域社会にどのように浸透しているかを、事例として記録する。",
+            "start": 900,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 16,
+            "describe": "午後4時に夕食をとる。夕食は家庭の時間として、家族や友人と共有する場を意識し、その中で「創造性」や「社会の未来」について、自然な会話を行う。",
+            "start": 960,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 17,
+            "describe": "夕食後、15分間、自由な書き出しを続ける。今日の行動や考えを、無理なく、自由な筆致で書き出す。創造性の流れを、自然な形で記録する。",
+            "start": 1020,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 18,
+            "describe": "家に帰る。帰宅後、家の照明を弱め、静かな環境を整える。その中で、今日の行動の「意味」を、内省的に再構築する。",
+            "start": 1080,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 19,
+            "describe": "くつろいでテレビを見る。ただし、視聴する内容は、創造性や人間の共感をテーマにしたドキュメンタリーに限定し、社会の変化に注目する。",
+            "start": 1140,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 20,
+            "describe": "くつろいでテレビを見る。前日までの思考や、創造性の本の進捗を、視聴中に思い出しながら、自然な流れでつなげて考える。",
+            "start": 1200,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 21,
+            "describe": "寝る前に本を読む。読書は、アダムの「知恵がある」という先天性を支える。特に、創造性と人間性の関係についての古典的哲学者の作品を読む。",
+            "start": 1260,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 22,
+            "describe": "寝る準備をする。衣類を整え、寝る前の静けさを保ちながら、今日の行動を振り返り、明日の創造活動に向けた準備を行う。",
+            "start": 1320,
+            "duration": 60,
+            "decompose": {}
+          },
+          {
+            "idx": 23,
+            "describe": "夜8時に就寝する。寝る前には、呼吸を整え、自分の心の状態を観察し、翌日の創造活動に向けた「意識の準備」を終える。",
+            "start": 1380,
+            "duration": 60,
+            "decompose": {}
+          }
+        ]
+      },
+      "associate": {
+        "memory": {
+          "event": [
+            "node_8",
+            "node_7",
+            "node_6",
+            "node_5",
+            "node_4",
+            "node_3",
+            "node_2",
+            "node_1"
+          ],
+          "thought": [
+            "node_0"
+          ],
+          "chat": []
+        }
+      },
+      "chats": [],
+      "currently": "アダムは、創造性の重要性とそれがどのように世界を形作るかについての本を書いている。また、来月の地方市長選挙に誰が立候補するかにも興味を持っている。",
+      "action": {
+        "event": {
+          "subject": "アダム",
+          "predicate": "今",
+          "object": "候補者の発言から「創造性」の要素を抽出する",
+          "describe": "候補者の発言から「創造性」の要素を抽出する",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "ピアノ"
+          ],
+          "emoji": "候補者の発言から「創造性」の要素を抽出する"
+        },
+        "obj_event": {
+          "subject": "ピアノ",
+          "predicate": "今",
+          "object": "アダムはピアノの隣で座っている",
+          "describe": "アダムはピアノの隣で座っている",
+          "address": [
+            "the Ville",
+            "ホブズ・カフェ",
+            "カフェ",
+            "ピアノ"
+          ],
+          "emoji": ""
+        },
+        "start": "20240213-09:35:00",
+        "duration": 15
+      },
+      "coord": [
+        83,
+        26
+      ]
+    }
+  },
+  "step": 3
+}

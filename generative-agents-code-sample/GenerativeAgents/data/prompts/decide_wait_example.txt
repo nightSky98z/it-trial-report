@@ -1,0 +1,11 @@
+背景：
+"""
+${context}
+今は ${date}
+${status}
+${agent} が ${another_status}と遭遇した
+"""
+質問：ステップごとに考え，以下の２つの選択肢から，${agent} はどちらを選ぶべき？
+選択肢A：${another} が ${another_action} を終えるまで待ち，その後に ${action} をする
+選択肢B：今は ${action} を続ける
+${reason}${answer}

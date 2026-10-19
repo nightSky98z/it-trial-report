@@ -1,0 +1,11 @@
+背景：
+"""
+${context}
+
+今は ${date}。${chat_history}
+
+${agent_status}
+${another_status}
+"""
+
+上記の背景から判断し，${agent} は自らから ${another} と会話する可能性がある？“はい”または“いいえ”だけで回答して：

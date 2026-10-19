@@ -1,0 +1,10 @@
+${agent} が ${time} のときの状態：
+${currently}
+
+${agent} は ${time} が終わるときに以下の事を覚えている：
+${plan}
+
+${agent} は ${time} が終わるときに以下の考えと気持ちを持っている：
+${thought}
+
+現在は ${current_time}。上記の状況から，第三者の視点で，1つの文章だけで ${agent} が ${current_time} の状態で，${agent} は ${time} が終わるときの考えと気持ちを説明してください。

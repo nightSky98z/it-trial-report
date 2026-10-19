@@ -1,0 +1,769 @@
+// schema/game.fbs
+namespace Game;
+
+// ══════════════════════════════════════════════
+// メッセージ種別の列挙（文字列の type の代わりに整数でルーティングする）
+// ══════════════════════════════════════════════
+enum MsgType : uint8 {
+  None                      = 0,            // なし
+    // ── C2S（クライアント → サーバー）──
+  C2S_RequestEnterZone      = 100,          // ゾーンサーバーへの接続を要求する
+  C2S_RequestEnterMap       = 101,          // マップへの入場を要求する
+  C2S_EnterMapReady         = 102,          // 通知：マップのリソースを読み込み終えたので、正式に入場できる
+  C2S_MoveInput             = 103,          // 移動の入力
+  C2S_CameraUpdate          = 104,          // C2S_MoveInput を流用しないこと。MoveInput は方向の入力（dir_x, dir_y）で、ダンジョンでのキャラクター移動用。CameraUpdate は絶対座標で、メインシティのビューポート用。意味が異なる。
+  C2S_Ping                  = 105,          // クライアントの ping（時刻同期を開始する）
+  C2S_AssignShipToArea      = 106,          // プレイヤーが全船を指定エリアへ割り当てる（h/j/k/l）
+  C2S_RecruitUnit           = 107,          // 精霊の募集（ゴールドを払ってマップ上に精霊のエンティティを生成する）
+  C2S_TeamOperation         = 108,          // 編成の操作（出撃／待機／編成の切り替え）
+  C2S_PickupItem            = 109,          // 地面のアイテムを拾う
+  C2S_EquipItem             = 110,          // 精霊にアイテムを装備する
+  C2S_UnequipItem           = 111,          // 精霊の装備を外す
+  C2S_ChallengeBoss         = 112,          // ボスに挑戦する
+  C2S_BuyBuilding           = 113,          // 建物を解放する（ゴールドを減らして state=1 にする）
+  C2S_ShopQueryList         = 114,          // ショップの商品リストを取得する（category 0=すべて）
+  C2S_ShopBuy               = 115,          // 商品を購入する（ゴールドを減らしてバッグに入れる）
+  C2S_ShopSell              = 116,          // 商品を売却する（バッグから減らしてゴールドを増やす）
+
+    // ── S2C（サーバー → クライアント）──
+  S2C_ErrorMessage          = 1,            // サーバーからのエラーメッセージ（共通）
+  S2C_EnterZoneAccepted     = 200,          // 接続を受け付け、ログイン時のキャラクター情報を返す（ゾーンサーバーへの接続と本人確認のみ）
+  S2C_EnterMapAccepted      = 201,          // キャラクターのマップ入場申請を受け付けた（マップ切り替えの妥当性などは検証済み）。マップ共通のリソース情報（読み込みパスなど）を送る
+  S2C_JoinMapSnapshot       = 202,          // マップの基本状態・AOI の初期オブジェクト・タイムスタンプ／フレーム番号を送る（サーバーのメモリ上のデータから作る）
+  S2C_EnterMapDone          = 203,          // キャラクターを正式にマップへ参加させた
+  S2C_UpdateAoiSnapshot     = 204,          // AOI の差分を送る
+  S2C_Pong                  = 205,          // サーバーの pong（タイムスタンプを返す）
+  S2C_BuildingChanged       = 206,          // 静的な建物専用の変化イベント（レベルアップ／見た目の変更など）
+  S2C_BattleEventBatch      = 207,          // 戦闘の離散イベントのバッチ（server_time_ms に従ってクライアントの EventTimeline に入る）
+  S2C_RecruitUnitList       = 208,          // 募集可能な精霊のリスト（サーバー → クライアント）
+  S2C_OperationResult       = 209,          // 汎用の操作結果（サーバー → クライアント）
+  S2C_BackpackChanged       = 210,          // バッグの変更通知
+  S2C_PlayerProfile         = 211,          // プレイヤー情報パネル
+  S2C_BossList              = 212,          // ボスのリスト
+  S2C_ShopList              = 213,          // ショップの商品リストの応答
+  S2C_GoldChanged           = 214,          // ゴールドの変更通知
+}
+
+// ══════════════════════════════════════════════
+// エラー種別の列挙（文字列の type の代わりに整数でルーティングする）
+// ══════════════════════════════════════════════
+enum ErrorType : uint32 {
+    // ネットワーク関連
+  None                          = 0,          // エラーなし
+  Net_AuthFailed                = 1,          // 認証に失敗した
+  Net_LoginGatewayFailed        = 2,          // ゲートウェイへのログインに失敗した
+  Net_LoginGameServerFailed     = 3,          // ゲームサーバー（ゾーンサーバー）へのログインに失敗した
+  Net_Timeout                   = 4,          // タイムアウト
+
+    // ゲーム関連
+  Game_InvalidTarget            = 100,        // 無効な対象
+  Game_SkillOnCooldown          = 101,        // スキルのクールダウン中
+  Game_NotEnoughMp              = 102,        // MP が足りない
+  Game_Silenced                 = 103,        // 沈黙状態
+  Game_Stunned                  = 104,        // スタン状態
+  Game_Dead                     = 105,        // 死亡済み
+  Game_OutOfRange               = 106,        // 範囲外
+  Game_InvalidState             = 107,        // 状態が無効
+
+    // 致命的なエラー（200 以上）：フロントエンドは受け取ったら再接続をやめ、ログイン画面へ遷移すること
+  Fatal_SessionExpired          = 200,        // セッションの期限切れ。再ログインが必要
+  Fatal_Kicked                  = 201,        // キックされた
+  Fatal_ServerError             = 202         // サーバーの致命的なエラー
+}
+
+// ══════════════════════════════════════════════
+// 基本の型定義
+// ══════════════════════════════════════════════
+// 生死の状態
+enum LifeStatus : byte {
+  Alive = 0,      // 通常（生存中）
+  Dying = 1,      // 瀕死。専用のアニメーションに使える
+  Dead  = 2,      // 死亡
+}
+
+// アクションの状態
+enum ActionState : byte {
+  Idle = 0,        // 待機
+  Move = 1,        // 移動
+  Attack = 2,      // 攻撃
+  Casting = 3,     // 詠唱中
+  Channeling = 4,  // チャネリング中
+  Hit = 5,         // 被弾
+  Dodge = 6,       // 回避
+  Dead = 7,        // 死亡
+  Retreating = 8   // 瀕死で治療施設へ撤退中（攻撃対象にならない）
+}
+
+// 作用の対象
+enum TargetType : byte {
+  None = 0,      // 対象なし
+  Actor = 1,     // エンティティが対象
+  Position = 2,  // 位置が対象
+  Direction = 3  // 方向が対象
+}
+
+// 2 次元座標
+struct Vec2 {
+  x: float;
+  y: float;
+}
+
+// 3 次元座標
+struct Vec3 {
+  x: float;
+  y: float;
+  z: float;
+}
+// ══════════════════════════════════════════════
+// 戦闘関連
+// ══════════════════════════════════════════════
+// 被弾の結果
+enum HitResult : byte {
+  None = 0,   // 結果なし
+  Hit = 1,    // 命中
+  Miss = 2,   // 外れ
+  Dodge = 3,  // 回避
+  Block = 4,  // ブロック
+}
+
+// ダメージの結果
+table DamageResult {
+  result: HitResult = None;  // 命中の結果
+  is_crit: bool = false;     // クリティカルかどうか
+  damage: int = 0;           // 与えたダメージ
+  final_hp: int = 0;         // 結果確定後の最終 HP
+}
+
+// ダメージの種類
+enum DamageType : byte {
+  Physical    = 0,            // 物理
+  Magical     = 1,            // 魔法
+  TrueDamage  = 2,            // 確定ダメージ
+  Dot         = 3             // 継続ダメージ（DoT）
+}
+
+// バフの操作
+enum BuffOp : byte {
+  Add = 1,                    // 付与
+  Remove = 2,                 // 解除
+  Refresh = 3                 // 継続時間の更新、またはスタックの加算
+}
+
+// ══════════════════════════════════════════════
+// キャラクター関連
+// ══════════════════════════════════════════════
+// プレイヤーのキャラクター
+table RoleInfo {
+  role_id: string;          // プレイヤー／キャラクター ID
+  role_name: string;        // 表示名
+
+  gold: uint32;             // ゴールド
+  stamina: uint32;          // スタミナ
+  crystal: uint32;          // クリスタル
+  combat_power: uint32;     // 総戦闘力（UI 表示用）
+
+  current_map_id: uint8;    // 現在いるマップ
+  selected_team_id: uint8;  // 現在選択している編成 ID（1〜3）
+  selected_unit_id: uint32;  // 現在操作している精霊の ID
+
+  teams: [TeamInfo];        // あらかじめ用意された 3 つの編成
+}
+
+enum UnitKind : uint8 {
+  Unknown = 0,              // 不明な種別
+  PlayerUnit = 1,           // プレイヤーの精霊
+  Monster = 2,              // モンスター
+  Npc = 3,                  // NPC
+  DropItem = 4              // 地面のドロップアイテム
+}
+
+// 精霊の情報
+table UnitInfo {
+  unit_id: uint32;
+  unit_name: string;
+  level: uint32;            // レベル
+  camp_id: uint32;          // 陣営
+  camp_name: string;
+  desc: string;             // キャラクターの説明
+}
+
+// 編成内の精霊の情報（設定）
+table TeamUnitInfo {
+  unit_id: uint32;
+  slot_index: uint8;
+  unit_name: string;        // 精霊の名前（unit_templates から取得）
+  level: uint32;            // レベル（role_units から取得）
+  base_hp: uint32;          // HP
+  base_atk: uint32;         // 攻撃力
+}
+
+// 編成の情報
+table TeamInfo {
+  team_id: uint8;           // 1~3
+  team_name: string;        // 任意。例：「編成 1」
+  units: [TeamUnitInfo];       // この編成に設定されている精霊の一覧
+}
+
+// ══════════════════════════════════════════════
+// AOI 関連
+// ══════════════════════════════════════════════
+// 現在の MapInstance 内でのプロトコル／AOI 用の主キー。サーバーの entt::entity でも、サーバー全体で一意な ID でもない。
+// クライアントはこれをマップインスタンス内で操作できるオブジェクトのキーとして扱う。サーバーは C2S を受け取ると、
+// まず connId/roleId から MapInstance を特定し、そのインスタンスの中で network_entity_id を解釈する。
+table UnitSnapshot {
+  network_entity_id: uint32;
+  owner_role_id: string;          // 所有者がいなければ ""
+  camp_id: uint32;                // 陣営（同盟・部族・中立など）
+  unit_id: uint32;                // キャラクター／カードの設定 ID。立ち絵・モデル・名前・スキルセットの参照に使う
+  unit_kind: UnitKind = Unknown;  // 種別
+  unit_name: string;              // ユニット名（プレイヤーの精霊には "P." の接頭辞が付く）
+
+  position: Vec2;                 // 現在の座標
+  velocity: Vec2;                 // 現在の速度。単位はワールド座標／秒
+  facing: uint8 = 0;              // 向き。サーバー権威で送る：0 down / 1 up / 2 left / 3 right
+  cur_hp: uint32;                 // 現在の HP
+  max_hp: uint32;                 // 最大 HP
+
+  life_status: LifeStatus;        // Alive / Dying / Dead
+  action_state: ActionState;      // Idle / Move / Attack / Casting / Hit / Dead
+}
+
+// 静的データ（JoinMapSnapshot で一度だけ送る）
+table UnitStaticData {
+  network_entity_id: uint32;
+  owner_role_id: string;          // 所有者がいなければ ""
+  camp_id: uint32;                // 陣営
+  unit_id: uint32;                // キャラクター／カードの設定 ID
+  unit_kind: UnitKind = Unknown;  // 種別
+  unit_name: string;              // ユニット名（プレイヤーの精霊には "P." の接頭辞が付く）
+  level: uint32 = 1;              // 現在のレベル（クライアントの頭上ラベルの表示用）
+    // 次の 2 項目は**現在のレベルと装備ボーナスを反映した実際の値**で、テンプレートの基礎値ではない。
+    // サーバー権威：クライアントはそのまま表示し、レベルや装備から自分で計算し直さないこと。
+    // 変化の頻度が低い（レベルアップや装備変更のときだけ変わる）ので、静的データに入れて AOI と一緒にキャッシュする。
+  max_hp: uint32 = 0;             // 最大 HP
+  attack_power: uint32 = 0;       // 攻撃力
+}
+
+// 動的データ（リアルタイムに更新し、UpdateAoiSnapshot で送る）
+table UnitDynamicData {
+  network_entity_id: uint32;
+  x: float;
+  y: float;
+  vx: float;
+  vy: float;
+  facing: uint8 = 0;              // 向き
+  cur_hp: uint32;                // 現在の HP
+  max_hp: uint32;                // 最大 HP
+  life_status: LifeStatus;        // Alive / Dying / Dead
+  action_state: ActionState;      // Idle / Move / Attack / Casting / Hit / Dead
+}
+
+table AoiGlobal {
+  units: [UnitStaticData];         // 静的データ（全件）
+  buildings: [BuildingSnapshot];
+}
+
+// ══════════════════════════════════════════════
+// 建物関連
+// ══════════════════════════════════════════════
+enum BuildingKind : uint8 {
+  Unknown = 0,
+  CityHall = 1,
+  Shop = 2,
+  Guild = 3,
+  HealingStation = 4  // 治療施設（受動的な回復オーラ）
+  // etc..
+}
+
+table BuildingSnapshot {
+  network_entity_id: uint32;
+  building_id: uint32;      // 建物のテンプレート ID
+  building_kind: BuildingKind = Unknown;
+  owner_role_id: string;    // 所有するメインシティ。空でもよい
+  position: Vec2;
+  level: uint32 = 1;
+  state: uint8 = 0;         // 予約：建設中／待機／レベルアップ中
+  building_name: string;    // 建物の表示名（フロントエンドでの区別用）
+  unlock_cost: uint32 = 0;  // 解放に必要なゴールド（ロック中の建物は価格を表示する）
+}
+
+// ══════════════════════════════════════════════
+// C2S のメッセージ本体
+// ══════════════════════════════════════════════
+table C2S_RequestEnterZone {
+  client_version: string;
+}
+
+table C2S_RequestEnterMap {
+  role_id: string;
+  map_id: uint8;
+  pass_token: string;
+}
+
+table C2S_EnterMapReady {
+  role_id: string;
+  pass_token: string;
+}
+
+// ダンジョン／戦闘マップでの移動の入力。メインシティのカメラ移動には使わないこと。
+// input_seq はサーバーのスナップショットでの ACK に使う。クライアントは受け取ったら処理待ちの入力を切り捨て、残りの入力を再生する。
+table C2S_MoveInput {
+  input_seq: uint32;
+  client_tick: uint64;
+  dir_x: float;
+  dir_y: float;
+  is_run: bool;
+}
+
+table C2S_CameraUpdate {
+  position: Vec2;
+}
+
+table C2S_Ping {
+  client_time_ms: uint64; // クライアントが Ping を送ったときの SteadyClock（ミリ秒）。サーバーはそのまま返すだけ
+}
+
+// プレイヤーが h/j/k/l で全船をあるエリアへ割り当てる。サーバーはそのプレイヤーの全船を走査し、
+// 現在の状態をすぐに中断して MovingToAnchor に入れ、その船に向けられたヘイトをすべて解除する。
+table C2S_AssignShipToArea {
+  area_id: uint8;     // 1=メインシティ 2=森 3=戦場 4=墓地
+}
+
+// 精霊の募集：ゴールドを払ってマップ上に新しい精霊のエンティティを生成する
+table C2S_RecruitUnit {
+  unit_id: uint32;            // 精霊のテンプレート ID（unit_templates テーブルの値）
+}
+
+// 編成の操作の種類
+enum TeamOp : byte {
+  Deploy = 0,         // 出撃：精霊を編成のスロットに入れる
+  Undeploy = 1,       // 待機：精霊を編成のスロットから外す
+  SwitchTeam = 2      // 出撃する編成を切り替える
+}
+
+// 汎用の操作結果の種類（すべての C2S 操作に共通の戻りコード）
+enum OpResultType : byte {
+  None = 0,           // なし
+  Recruit = 1,        // 募集
+  TeamDeploy = 2,     // 出撃
+  TeamUndeploy = 3,   // 待機
+  TeamSwitch = 4,     // 編成の切り替え
+  ItemPickup = 5,     // アイテムを拾う
+  ItemEquip = 6,      // アイテムを装備する
+  ItemUnequip = 7,     // 装備を外す
+  BossChallenge = 8,   // ボスに挑戦する
+  BuildingUnlock = 9,   // 建物を解放する
+  ShopBuy = 10,         // 商品を購入する
+  ShopSell = 11         // 商品を売却する
+}
+
+// 地面のドロップアイテムを拾う
+table C2S_PickupItem {
+  entity_id: uint32;          // ドロップアイテムのエンティティの network_entity_id
+}
+
+// 精霊にアイテムを装備する
+table C2S_EquipItem {
+  unit_id: uint32;            // 精霊のテンプレート ID
+  slot: uint8;                // 装備スロット 1=武器 2=防具 3=アクセサリ
+  item_id: uint32;            // アイテム ID
+}
+
+// 精霊の装備を外す
+table C2S_UnequipItem {
+  unit_id: uint32;            // 精霊のテンプレート ID
+  slot: uint8;                // 装備スロット
+}
+
+// ボスに挑戦する
+table C2S_ChallengeBoss {
+  boss_id: uint32;            // ボスのテンプレート ID
+}
+
+// 建物を解放する（ロック中の建物をクリック → ゴールドを減らす → state=1）
+table C2S_BuyBuilding {
+  building_id: uint32;        // 建物のテンプレート ID（buildings.id）
+}
+
+// ══════════════════════════════════════════════
+// ショップシステムのメッセージ定義
+// ══════════════════════════════════════════════
+// 商品（ショップのリストに並ぶ 1 つの商品）
+table ShopItem {
+  shop_item_id: uint32;      // ショップの商品の設定 ID（shop_items.id）
+  item_id: uint32;           // アイテム ID
+  item_name: string;         // アイテム名
+  item_type: uint8;          // アイテムの種類：1=消耗品 2=装備 3=素材
+  sub_type: uint8;           // 装備のサブタイプ
+  attr_value: int32;         // ステータスのボーナス値
+  rarity: uint8;             // レア度
+  description: string;       // 説明
+  price: int32;              // 購入価格
+  sell_price: int32;         // 売却価格
+  stock: int32;              // 在庫（-1=無制限）
+  owned_count: uint32;       // プレイヤーの所持数
+}
+
+// 商品のカテゴリの情報
+table ShopCategory {
+  category_id: uint8;        // カテゴリ ID
+  category_name: string;     // カテゴリ名
+  items: [ShopItem];         // このカテゴリの商品の一覧
+}
+
+// ショップの商品リストを取得する（C2S）
+// category は任意：0=すべて、1〜5=指定したカテゴリ
+table C2S_ShopQueryList {
+  category: uint8;           // カテゴリ ID。0=すべてのカテゴリ
+}
+
+// ショップの商品リストの応答（S2C）
+table S2C_ShopList {
+  categories: [ShopCategory];  // すべてのカテゴリとその商品
+  player_gold: uint32;         // 現在のプレイヤーのゴールド
+}
+
+// 商品を購入する（C2S）
+table C2S_ShopBuy {
+  shop_item_id: uint32;      // ショップの商品の設定 ID
+  count: uint32;             // 購入数（デフォルトは 1）
+}
+
+// 商品を売却する（C2S）
+table C2S_ShopSell {
+  item_id: uint32;           // 売却するアイテムの ID
+  count: uint32;             // 売却数
+}
+
+// ゴールドの変更通知（S2C）
+table S2C_GoldChanged {
+  old_gold: uint32;          // 変更前のゴールド
+  new_gold: uint32;          // 変更後のゴールド
+  reason: string;            // 変更の理由：buy/sell/reward/recruit
+}
+
+// 編成の操作：出撃／待機／編成の切り替え
+table C2S_TeamOperation {
+  op: TeamOp;              // 操作の種類
+  team_id: uint8;          // 対象の編成番号 1〜3（SwitchTeam のときは切り替え先の編成）
+  slot_index: uint8;       // スロット 0〜4（SwitchTeam のときは無視する）
+  unit_id: uint32;         // 精霊 ID（SwitchTeam のときは無視する）
+}
+
+// 募集可能な精霊の情報
+table RecruitUnitInfo {
+  unit_id: uint32;
+  unit_name: string;
+  base_hp: int32;
+  base_atk: int32;
+  cost: int32;
+  owned: bool;            // プレイヤーがこの精霊を既に所持しているか
+}
+
+// 募集可能な精霊のリスト（サーバー → クライアント）
+table S2C_RecruitUnitList {
+  units: [RecruitUnitInfo];
+}
+
+// 汎用の操作結果（サーバー → クライアント）。募集・編成・課金などすべての操作で共通に返す
+table S2C_OperationResult {
+  op_type: OpResultType;  // 操作の種類
+  success: bool;          // 成功／失敗
+  message: string;        // 表示するメッセージ
+  data: string;           // 任意の追加データ（JSON）
+}
+
+// バッグのアイテム
+table BackpackItem {
+  item_id: uint32;
+  item_name: string;
+  item_type: uint8;       // 1=消耗品 2=装備 3=素材
+  sub_type: uint8;        // サブタイプ
+  attr_value: int32;      // ステータスのボーナス値
+  rarity: uint8;          // レア度
+  count: uint32;          // 数量
+  description: string;
+}
+
+// バッグの変更通知（S2C）
+table S2C_BackpackChanged {
+  items: [BackpackItem];
+}
+
+// プレイヤー情報パネル
+table S2C_PlayerProfile {
+  role_id:string;
+  role_name:string;
+  gold:uint32;
+  stamina:uint32;
+  crystal:uint32;
+  combat_power:uint32;
+  current_map_id:uint32;
+  selected_team_id:uint32;
+}
+
+// ボスの情報
+table BossInfo {
+  boss_id: uint32;        // ボスのテンプレート ID
+  boss_name: string;      // ボスの名前
+  template_id: uint32;    // ユニットのテンプレート ID（見た目）
+  hp: int32;             // HP
+  atk: int32;            // 攻撃力
+  spawn_x: float;        // 出現地点 X
+  spawn_y: float;        // 出現地点 Y
+  gold_reward: uint32;   // ゴールドの報酬
+  drops_json: string;    // ドロップの JSON
+}
+
+// ボスのリスト（サーバー → クライアント）
+table S2C_BossList {
+  bosses: [BossInfo];
+}
+
+// ══════════════════════════════════════════════
+// S2C のメッセージ本体
+// ══════════════════════════════════════════════
+
+// サーバーからのエラーメッセージ（共通）
+table S2C_ErrorMessage {
+  error_code: ErrorType;
+  message: string;
+}
+
+// 接続を受け付け、ログイン時のキャラクター情報を返す（ゾーンサーバーへの接続と本人確認のみ）
+table S2C_EnterZoneAccepted {
+  role: RoleInfo;
+  pass_token: string;
+  ok: bool;
+}
+
+// キャラクターのマップ入場申請を受け付けた（マップ切り替えの妥当性などは検証済み）。マップ共通のリソース情報（読み込みパスなど）を送る
+table S2C_EnterMapAccepted {
+  ok: bool;
+}
+
+// マップの基本状態・AOI の初期オブジェクト・タイムスタンプ／フレーム番号を送る（サーバーのメモリ上のデータから作る）
+table S2C_JoinMapSnapshot {
+  snapshot_tick: uint64;      // AOI／マップインスタンスのスナップショット番号
+  snapshot_time_ms: uint64;   // マップインスタンスの SimClock（ミリ秒）。インスタンス起動時（tick 0）から数える
+  role: RoleInfo; // 不要かもしれない
+  aoi: AoiGlobal;
+  last_processed_input_seq: uint32 = 0;
+}
+
+// キャラクターを正式にマップへ参加させた
+table S2C_EnterMapDone {
+  ok: bool;
+}
+
+// AOI の更新：動的なユニットだけを同期する。建物は静的なインタラクション対象で、AOI の差分には含めない。
+//
+// 静的データ（UnitStaticData）は基本的に S2C_JoinMapSnapshot で一度に全件送り、フロントエンドは
+// aoiGlobalCache に書き込んで使い回す。ただし世界は動的で（モンスターの再出現、プレイヤーの後からの入場など）、
+// Join の後に現れたエンティティは Join のスナップショットに含まれない。そのため保険として entered_units を残している。
+//   ・定常状態（AOI の出入りなし）：entered_ids / entered_units はどちらも空の vector で、ペイロードはゼロ
+//   ・エンティティが閲覧者の視界に入った：entered_units にそのエンティティの静的データを入れる（entered_ids と 1 対 1 に対応）
+// フロントエンドは受け取ったら aoiGlobalCache に書き込み、その後 syncUnitById で直接取得できる。
+//
+// entered_ids:   新しく視界に入ったユニットの ID
+// entered_units: 新しく入ったユニットの静的データ（キャッシュに既にあれば新しい値で上書きする）
+// updated_units: リアルタイムの動的データ（位置／HP／向き／意図／アクション…）
+table S2C_UpdateAoiSnapshot {
+  snapshot_tick: uint64;
+  snapshot_time_ms: uint64;
+
+  entered_ids: [uint32];              // 新しく視界に入った ID
+  updated_units: [UnitDynamicData];   // リアルタイムの動的データ
+  left_unit_network_entity_ids: [uint32];
+  ack_input_seq: uint32 = 0;
+  entered_units: [UnitStaticData];    // entered_ids に対応する静的データ（定常状態では空）
+}
+
+table S2C_Pong {
+  client_time_ms: uint64;      // クライアントが Ping を送ったときの WallClock
+  server_sim_time_ms: uint64; // サーバーが Pong を送ったときの SimClock
+}
+
+// 建物は専用のイベントでのみ変化する（例：レベルアップによる level／見た目のテンプレートの変更）。
+// 通常のカメラの AOI 配信では、建物の enter/update/left は送らない。
+table S2C_BuildingChanged {
+  snapshot_tick: uint64;
+  snapshot_time_ms: uint64;
+  building: BuildingSnapshot;
+}
+
+// ── 戦闘の離散イベント：union は参照する table より前に宣言する必要がある ─────────────
+table S2C_StateChanged {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  prev_state: ActionState;
+  new_state: ActionState;
+}
+
+table S2C_ActionStarted {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  action_type: uint8;
+  duration_sec: float;
+  target_x: float = 0;
+  target_y: float = 0;
+  skill_id: uint8 = 255;
+}
+
+table S2C_ActionFinished {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  action_type: uint8;
+}
+
+table S2C_CombatResult {
+  server_time_ms: uint64;
+  source_id: uint32;
+  target_id: uint32;
+  damage: int;
+  delta: int;
+  final_hp: uint32;
+  max_hp: uint32;
+  is_crit: bool = false;
+  is_miss: bool = false;
+  skill_id: uint8 = 0;
+  hit_x: float = 0;
+  hit_y: float = 0;
+}
+
+table S2C_SkillCast {
+  server_time_ms: uint64;
+  caster_id: uint32;
+  skill_id: uint8;
+  origin_x: float;
+  origin_y: float;
+  target_x: float;
+  target_y: float;
+}
+
+table S2C_HpChanged {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  cur_hp: uint32;
+  max_hp: uint32;
+  delta: int;
+}
+
+table S2C_Death {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  killer_id: uint32 = 0;
+}
+
+table S2C_Revive {
+  server_time_ms: uint64;
+  entity_id: uint32;
+}
+
+table S2C_BuffEvent {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  buff_id: uint32;
+  op: BuffOp = Add;
+  stacks: uint8 = 0;
+  remain_sec: float = 0;
+}
+
+table S2C_PhaseChanged {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  prev_phase: uint8;
+  new_phase: uint8;
+}
+
+table S2C_LevelUp {
+  server_time_ms: uint64;
+  entity_id: uint32;
+  new_level: uint32;
+}
+
+// ユニットの派生ステータスの変化：レベルアップや装備変更など、UnitStaticData の
+// level / max_hp / attack_power を変える操作では、必ずこれを送ること。
+//
+// 存在理由：UnitStaticData はマップ入場時と視界に入ったときに一度だけ送られ、その後クライアントはキャッシュを使い続ける。
+// この通知がないと、プレイヤーがレベルアップや装備変更をしても、編成パネルや頭上ラベルは古い数値のままになり、
+// マップに入り直すまで更新されない（DB は更新済みなのに、画面は古い値で止まる）。
+//
+// 戦闘中の HP バーは UnitDynamicData で毎 tick 更新するので、このメッセージには依存しない。
+table S2C_UnitStatsChanged {
+  server_time_ms: uint64;
+  entity_id: uint32;        // network_entity_id
+  level: uint32;
+  max_hp: uint32;           // レベル成長と装備ボーナスを含めた実際の値
+  attack_power: uint32;     // レベル成長と装備ボーナスを含めた実際の値
+}
+
+union BattleEvent {
+  S2C_StateChanged,
+  S2C_ActionStarted,
+  S2C_ActionFinished,
+  S2C_CombatResult,
+  S2C_SkillCast,
+  S2C_HpChanged,
+  S2C_Death,
+  S2C_Revive,
+  S2C_BuffEvent,
+  S2C_PhaseChanged,
+  S2C_LevelUp,
+  S2C_UnitStatsChanged,
+}
+
+table S2C_BattleEventBatch {
+  tick: uint64;
+  events: [BattleEvent];
+}
+
+// ══════════════════════════════════════════════
+// 共通の封筒（Envelope）
+// ══════════════════════════════════════════════
+union MsgBody {
+    // ── C2S（クライアント → サーバー）──
+  C2S_RequestEnterZone,               // ゾーンサーバーへの接続を要求する
+  C2S_RequestEnterMap,                // マップへの入場を要求する
+  C2S_EnterMapReady,                  // 通知：マップのリソースを読み込み終えたので、正式に入場できる
+  C2S_MoveInput,                      // 移動の入力
+  C2S_CameraUpdate,                   // カメラの座標の更新（絶対座標）
+  C2S_Ping,                          // クライアントの ping（時刻同期を開始する）
+  C2S_AssignShipToArea,              // プレイヤーが全船をあるエリアへ割り当てる
+    // ── S2C（サーバー → クライアント）──
+  S2C_ErrorMessage,                   // サーバーからのエラーメッセージ（共通）
+  S2C_EnterZoneAccepted,              // 接続を受け付けた
+  S2C_EnterMapAccepted,               // キャラクターのマップ入場申請を受け付けた
+  S2C_JoinMapSnapshot,                // マップの基本状態と AOI の初期オブジェクトを送る
+  S2C_EnterMapDone,                   // キャラクターを正式にマップへ参加させた
+  S2C_UpdateAoiSnapshot,             // AOI の差分を送る
+  S2C_Pong,                          // サーバーの pong
+  S2C_BuildingChanged,               // 建物の変化イベント
+  S2C_BattleEventBatch,              // 戦闘の離散イベントのバッチ
+  C2S_RecruitUnit,                    // 精霊の募集
+  C2S_TeamOperation,                  // 編成の操作
+  C2S_PickupItem,                     // アイテムを拾う
+  C2S_EquipItem,                      // アイテムを装備する
+  C2S_UnequipItem,                    // 装備を外す
+  S2C_RecruitUnitList,                // 募集可能な精霊のリスト
+  S2C_OperationResult,                // 汎用の操作結果
+  S2C_BackpackChanged,                // バッグの変更通知
+  S2C_PlayerProfile,                   // プレイヤー情報パネル
+  C2S_ChallengeBoss,                   // ボスに挑戦する
+  S2C_BossList,                        // ボスのリスト
+  C2S_BuyBuilding,                     // 建物を解放する
+  C2S_ShopQueryList,                   // ショップの商品リストを取得する
+  C2S_ShopBuy,                         // 商品を購入する
+  C2S_ShopSell,                        // 商品を売却する
+  S2C_ShopList,                        // ショップの商品リストの応答
+  S2C_GoldChanged                      // ゴールドの変更通知
+}
+
+table Envelope {
+  msg_type: MsgType;
+  seq: uint32;          // シーケンス番号
+  send_time_ms: uint64 = 0;    // 送信時の WallClock のタイムスタンプ（Unix ミリ秒）。ログ・パケットキャプチャ・デバッグ専用
+  body: MsgBody;
+}
+
+root_type Envelope;
